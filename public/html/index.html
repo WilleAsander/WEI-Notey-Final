@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <!-- Trigger the modal-->
+    <!-- Trigger the O.G modal-->
     <div >
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
     </div>
@@ -31,7 +31,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                
                 </div>
-                <!-- /Modal header/-->
+                <!-- /Modal header ends/-->
                     <div class="modal-body"> 
                         <div class="form-group">
                                 <label for="noteTitle" class="col-form-label">Set Title:</label>
@@ -47,6 +47,34 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
+        <!-- Modal 2 for update -->
+        <div class="modal fade" id="myUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title"id ="modalTitle">modalTitle goes here</h4>                                                           
+                                                            
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                       
+                        </div>
+                        <!-- /Modal header ends/-->
+                            <div class="modal-body"> 
+                                <div class="form-group">
+                                        <label for="noteUpdateTitle" class="col-form-label">Set Title:</label>
+                                        <input type="text" class="form-control" id="noteUpdateTitle">
+                                </div>
+                                <label for="myUpdadeText" class="col-form-label">Note:</label>                  
+                                <textarea id="myUpdateText" class="form-control col-xs-12">myUpdateText goes here</textarea>
+                            </div>
+        
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="saveBtn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
 </body>
 </html>
