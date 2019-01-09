@@ -2,12 +2,12 @@ var express = require('express');
 
 var app = express();
 
-//var home = require('./routes/home')
+var home = require('./routes/home')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//app.use('/', home);
+app.use('/', home);
 
 app.use(express.static('public'));
 
