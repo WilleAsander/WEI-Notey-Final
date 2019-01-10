@@ -14,12 +14,15 @@
 
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Notey</a>
         <form class="form-inline">
-            <button id="addNotey" class="btn btn-outline-light" type="button">New Notey</button>
+            <button id="addNotey" class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#myModal">New Notey</button>
         </form>
     </nav>
+
+    <!-- ExampleList-->
     <div class="container">
         <div class="list-group list-group-flush m-3">
             <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
@@ -28,5 +31,64 @@
             <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Notey</h4>                                                           
+                        
+                    
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                               
+                </div>
+                <!-- /Modal header ends/-->
+                    <div class="modal-body"> 
+                        <div class="form-group">
+                                <label for="noteTitle" class="col-form-label">Set Title:</label>
+                                <input type="text" class="form-control" id="noteTitle">
+                        </div>
+                        <label for="content" class="col-form-label">Note:</label>                  
+                        <textarea id="content" class="form-control col-xs-12"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="firstSaveBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 for update -->
+    <div class="modal fade" id="myUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"id ="modalTitle">modalTitle goes here</h4>                                                           
+                                                        
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    
+                    </div>
+                    <!-- /Modal header ends/-->
+                        <div class="modal-body"> 
+                            <div class="form-group">
+                                    <label for="noteUpdatedTitle" class="col-form-label">Set Title:</label>
+                                    <input type="text" class="form-control" id="noteUpdatedTitle">
+                            </div>
+                            <label for="updadedContent" class="col-form-label">Note:</label>                  
+                            <textarea id="updatedContent" class="form-control col-xs-12">myUpdateText goes here</textarea>
+                        </div>
+    
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
 </body>
 </html>
