@@ -71,6 +71,31 @@ $(function(){
 
 function openNotey(button){
     console.log(button.value);
+    generateNote(button.value);
+
+    $("#myUpdateModal").modal('toggle');
+}
+
+function generateNote(id){
+    $.ajax({
+        method: 'GET',
+        url: 'https://api-notey.herokuapp.com/api/1.0/notes/' + id,
+        contentType: "application/json",
+        success: function(result){
+            console.log('derp');
+            // sets the value of noteys data into title and content
+            var title = result.heading;
+            var content = result.content;
+            // console log for testing
+            console.log(title);
+            console.log(content);
+            document.getElementById("modalTitle").innerHTML = title;
+            document.getElementById("updatedContent").innerHTML = content;
+        },
+        error: function(error) { 
+            alert(error.errorMessage); 
+        }
+    });
 }
 
 function deleteNotey(id){
