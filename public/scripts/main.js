@@ -74,6 +74,21 @@ function openNotey(button){
     console.log(button.value);
 }
 
+function deleteNotey(id){
+    $.ajax({
+        method: 'DELETE',
+        url: 'https://api-notey.herokuapp.com/api/1.0/notes/delete/' + id,
+        success: function(result){
+            console.log('Deleted notey');
+            fetchNoteys();
+        },
+        error: function(error){
+            alert(error.errorMessage);
+        }
+
+    });
+};
+
 // Update the Noteys
 $(function(){
     $("#updateNotey").click(function(){
