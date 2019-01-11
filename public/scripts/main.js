@@ -2,7 +2,8 @@
 var token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1YzM3MWU1NzQ1MWQwMjAwMTcxYWRiM2QiLCJ1c2VyTmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3QiLCJwYXNzd29yZCI6IiQyYSQxMCRzNWQxQkVPSllWWkxCQ0Z3Y0Zkei5PbFIxZXhwWHRUV3lxZTJZdFVMd014YzNhSWlVd0FuQyIsIl9fdiI6MH0.8cECfQfC87TjEM2bbI3OQGkQfv4HMHOixTIZWu-9pMg"
 
 // Fetches all notes on site load
-$(function(){
+$(function fetchNoteys(){
+    $("#notey-list").empty();
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
@@ -13,7 +14,7 @@ $(function(){
         success: function(notes){
             $.each(notes, function(index, value){
                 var listItem = '<button type="button" value="'
-                listItem += value['_id']
+                listItem += value['id']
                 listItem +='" class="list-group-item list-group-item-action">';
                 listItem += value['heading'];
                 listItem += '</button>';
@@ -47,12 +48,21 @@ $(function(){
             success: function(result){
                 console.log("sent");
                 console.log(result);
+                $("#noteTitle").val('');
+                $("#content").val('');
+                fetchNoteys();
             },
             error: function(error){
                 console.log("failure");
                 console.log(error);
             },
         });
+    });
+});
+
+$(function(){
+    $("#notey-list").click(function(){
+        console.log("button clicked");
     });
 });
 
