@@ -1,4 +1,8 @@
 var token = localStorage.getItem('userToken');
+if (token === null){
+    console.log('not logged in');
+    logout();
+}
 
 // Fetches all notes on site load
 $(fetchNoteys);
@@ -68,6 +72,18 @@ $(function(){
         });
     });
 });
+$(function(){
+    $("#logout").click(function(){
+        logout();
+    });
+});
+
+// Global function so we can call it whenever
+function logout(){
+    console.log("logged out");
+    localStorage.clear();
+    window.location = "/login";
+}
 
 function openNotey(button){
     console.log(button.value);
