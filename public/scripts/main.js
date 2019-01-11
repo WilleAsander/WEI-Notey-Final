@@ -2,7 +2,8 @@
 var token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1YzM3MWU1NzQ1MWQwMjAwMTcxYWRiM2QiLCJ1c2VyTmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3QiLCJwYXNzd29yZCI6IiQyYSQxMCRzNWQxQkVPSllWWkxCQ0Z3Y0Zkei5PbFIxZXhwWHRUV3lxZTJZdFVMd014YzNhSWlVd0FuQyIsIl9fdiI6MH0.8cECfQfC87TjEM2bbI3OQGkQfv4HMHOixTIZWu-9pMg"
 
 // Fetches all notes on site load
-$(function fetchNoteys(){
+$(fetchNoteys);
+function fetchNoteys(){
     $("#notey-list").empty();
     $("#notey-list a").off();
     $.ajax({
@@ -33,7 +34,7 @@ $(function fetchNoteys(){
     });
 
     
-});
+}
 
 $(function(){
     $("#saveNotey").click(function(){
