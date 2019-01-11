@@ -86,9 +86,13 @@ function logout(){
 }
 
 function openNotey(button){
-    console.log(button.value);
     generateNote(button.value);
-
+    $("#updateTitle").hide();
+    $("#displayTitle").show();
+    $("#updateContent").hide();
+    $("#displayContent").show();
+    $("#updateNotey").show();
+    $("#saveUpdatedNotey").hide();
     $("#myUpdateModal").modal('toggle');
 }
 
@@ -98,15 +102,15 @@ function generateNote(id){
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/' + id,
         contentType: "application/json",
         success: function(result){
-            console.log('derp');
             // sets the value of noteys data into title and content
             var title = result.heading;
             var content = result.content;
-            // console log for testing
-            console.log(title);
-            console.log(content);
-            document.getElementById("modalTitle").innerHTML = title;
-            document.getElementById("updatedContent").innerHTML = content;
+            
+            $("#displayTitle").html(title);
+            $("#updateTitle").val(title);
+            $("#updateContent, #displayContent").html(content);
+            $("#deleteNotey").val(id);
+
         },
         error: function(error) { 
             alert(error.errorMessage); 
@@ -123,22 +127,58 @@ function deleteNotey(id){
             fetchNoteys();
         },
         error: function(error){
-            alert(error.errorMessage);
         }
 
     });
 };
 
-// Update the Noteys
+// Switch to edit mode
 $(function(){
     $("#updateNotey").click(function(){
-        console.log('note was updated');
-        // update and save title and content to database
+        $("#displayTitle").hide();
+        $("#updateTitle").show();
+        $("#displayContent").hide();
+        $("#updateContent").show();
+        $("#updateNotey").hide();
+        $("#saveUpdatedNotey").show();
+    });
+});
+
+$(function(){
+    $("#saveUpdatedNotey").click(function(){
+        var title = $("#updateTitle").val();
+        var text = $("#updateContent").val();
+        var noteDate = new Date().toISOString();
+        var noteData = {
+                heading: title,
+                content: text,
+                date: noteDate
+        };
+
+        $.ajax({
+            method: 'PATCH',
+            url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/{id}',
+            data: JSON.stringify(noteData),
+            success: function(result){
+                $("#displayTitle").html(title);
+                $("#displayContent").html(text);
+
+                $("#updateTitle").hide();
+                $("#displayTitle").show();
+                $("#updateContent").hide();
+                $("#displayContent").show();
+                $("#updateNotey").show();
+                $("#saveUpdatedNotey").hide();
+            },
+            error: function(error){
+                
+            }
+        });
     });
 });
 
 $(function(){
     $("#deleteNotey").click(function(){
-
+        deleteNotey(this.value);
     });
 });
