@@ -40,6 +40,11 @@ $(function(){
         var title = $("#noteTitle").val();
         var text = $("#content").val();
         var noteDate = new Date().toISOString();
+        var noteData = {
+                heading: title,
+                content: text,
+                date: noteDate
+        };
         $.ajax({
             method: 'POST',
             url: 'https://api-notey.herokuapp.com/api/1.0/notes/create/',
@@ -47,11 +52,8 @@ $(function(){
             headers:{
                 'Authorization': token
             },
-            data:{
-                heading: title,
-                content: text,
-                date: noteDate
-            },
+            data:JSON.stringify(noteData),
+             
             success: function(result){
                 console.log("sent");
                 console.log(result);
