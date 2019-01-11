@@ -15,18 +15,18 @@ function fetchNoteys(){
         },
         success: function(notes){
             $.each(notes, function(index, value){
-                var listItem = '<a href="#" value="'
+                var listItem = '<button value="'
                 listItem += value['id']
                 listItem +='" class="list-group-item list-group-item-action">';
                 listItem += value['heading'];
-                listItem += '</a>';
+                listItem += '</button>';
                 $("#notey-list").append(listItem)
             });
-
-            $("#notey-list a").click(function(){
-                console.log("button clicked");
-            });
             
+            // Add onclick listener after listItems have been created
+            $("#notey-list button").click(function(){
+                openNotey(this);
+            });
         },
         error: function(error){
             console.log(error);
@@ -70,9 +70,9 @@ $(function(){
     });
 });
 
-$(function(){
-    
-});
+function openNotey(button){
+    console.log(button.value);
+}
 
 // Update the Noteys
 $(function(){
