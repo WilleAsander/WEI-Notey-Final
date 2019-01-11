@@ -8,25 +8,84 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <!-- Script -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
 
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Notey</a>
         <form class="form-inline">
-            <button id="addNotey" class="btn btn-outline-light" type="button">New Notey</button>
+            <button id="addNotey" class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#myModal">New Notey</button>
+            <button id="logout" class="btn btn-danger ml-3" type="button">Logout</button>
         </form>
     </nav>
+
+    <!-- List -->
     <div class="container">
-        <div class="list-group list-group-flush m-3">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-            <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-            <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+        <div id="notey-list" class="list-group list-group-flush m-3">
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Notey</h4>                                                           
+                        
+                    
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                               
+                </div>
+                <!-- /Modal header ends/-->
+                    <div class="modal-body"> 
+                        <div class="form-group">
+                                <label for="noteTitle" class="col-form-label">Set Title:</label>
+                                <input type="text" class="form-control" id="noteTitle">
+                        </div>
+                        <label for="content" class="col-form-label">Note:</label>                  
+                        <textarea id="content" class="form-control col-xs-12"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" id="saveNotey">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 for update -->
+    <div class="modal fade" id="myUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"id ="modalTitle">modalTitle goes here</h4>                                                           
+                                                        
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    
+                    </div>
+                    <!-- /Modal header ends/-->
+                        <div class="modal-body"> 
+                            <div class="form-group">
+                                    <label for="noteUpdatedTitle" class="col-form-label">Set Title:</label>
+                                    <input type="text" class="form-control" id="noteUpdatedTitle">
+                            </div>
+                            <label for="updadedContent" class="col-form-label">Note:</label>                  
+                            <textarea id="updatedContent" class="form-control col-xs-12">myUpdateText goes here</textarea>
+                        </div>
+    
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
 </body>
 </html>
