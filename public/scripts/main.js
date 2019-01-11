@@ -1,14 +1,14 @@
-var content = $('#content').val();
-var noteTitle = $('#noteTitle').val();
+// Token for test account. Change this to the token given on login.
+var token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1YzM3MWU1NzQ1MWQwMjAwMTcxYWRiM2QiLCJ1c2VyTmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3QiLCJwYXNzd29yZCI6IiQyYSQxMCRzNWQxQkVPSllWWkxCQ0Z3Y0Zkei5PbFIxZXhwWHRUV3lxZTJZdFVMd014YzNhSWlVd0FuQyIsIl9fdiI6MH0.8cECfQfC87TjEM2bbI3OQGkQfv4HMHOixTIZWu-9pMg"
 
-// Fetches all notes onsite load
+// Fetches all notes on site load
 $(function(){
     $.ajax({
-        method: 'post',
-        url: 'https://api-notey.herokuapp.com/api/1.0/notes',
-        // Switch to token
-        data:{
-            id:'5c371e57451d0200171adb3d'
+        method: 'GET',
+        url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
+        contentType: "application/json",
+        headers:{
+            'Authorization': token
         },
         success: function(notes){
             $.each(notes, function(index, value){
@@ -19,48 +19,53 @@ $(function(){
                 listItem += '</button>';
                 $("#notey-list").append(listItem)
             });
+            
         },
         error: function(error){
-            console.log("failure");
             console.log(error);
         }
     });
 });
 
-// Saving the Notey for the first time
 $(function(){
-    $("#firstSaveBtn").click(function(){
-        console.log('notey was saved');
-        // save title and content to database
-        // Currently does not work
+    $("#saveNotey").click(function(){
+        var title = $("#noteTitle").val();
+        var text = $("#content").val();
+        var noteDate = new Date().toISOString();
         $.ajax({
-            method: 'post',
-            url: 'https://api-notey.herokuapp.com/api/1.0/notes/create',
+            method: 'POST',
+            url: 'https://api-notey.herokuapp.com/api/1.0/notes/create/',
             contentType: "application/json",
-            data:{
-                id:'5c371e57451d0200171adb3d',                
-                heading: $("#notetitle").val,
-                content: $("#content").val,  
-                date:'e',                 
-            } ,
-            dataType: 'text',
-    
-            success: function (data){
-                console.log(data);
-                
+            headers:{
+                'Authorization': token
             },
-            error: function (error){
+            data:{
+                heading: title,
+                content: text,
+                date: noteDate
+            },
+            success: function(result){
+                console.log("sent");
+                console.log(result);
+            },
+            error: function(error){
+                console.log("failure");
                 console.log(error);
-            }
+            },
         });
-        
     });
 });
 
 // Update the Noteys
 $(function(){
-    $("#SaveBtn").click(function(){
+    $("#updateNotey").click(function(){
         console.log('note was updated');
         // update and save title and content to database
+    });
+});
+
+$(function(){
+    $("#deleteNotey").click(function(){
+
     });
 });
