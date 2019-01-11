@@ -4,6 +4,7 @@ var token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1YzM3MWU1NzQ
 // Fetches all notes on site load
 $(function fetchNoteys(){
     $("#notey-list").empty();
+    $("#notey-list a").off();
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
@@ -13,12 +14,16 @@ $(function fetchNoteys(){
         },
         success: function(notes){
             $.each(notes, function(index, value){
-                var listItem = '<button type="button" value="'
+                var listItem = '<a href="#" value="'
                 listItem += value['id']
                 listItem +='" class="list-group-item list-group-item-action">';
                 listItem += value['heading'];
-                listItem += '</button>';
+                listItem += '</a>';
                 $("#notey-list").append(listItem)
+            });
+
+            $("#notey-list a").click(function(){
+                console.log("button clicked");
             });
             
         },
@@ -26,6 +31,8 @@ $(function fetchNoteys(){
             console.log(error);
         }
     });
+
+    
 });
 
 $(function(){
@@ -61,9 +68,7 @@ $(function(){
 });
 
 $(function(){
-    $("#notey-list").click(function(){
-        console.log("button clicked");
-    });
+    
 });
 
 // Update the Noteys
