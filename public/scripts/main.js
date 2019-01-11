@@ -17,11 +17,15 @@ function fetchNoteys(){
             'Authorization': token
         },
         success: function(notes){
-            $.each(notes, function(index, value){
+            $.each(notes.reverse(), function(index, value){
                 var listItem = '<button value="'
                 listItem += value['id']
                 listItem +='" class="list-group-item list-group-item-action">';
                 listItem += value['heading'];
+                listItem += '<small class="float-right">';
+                // We could add a date difference calculator here
+                listItem += value['date'];
+                listItem += '</small>';
                 listItem += '</button>';
                 $("#notey-list").append(listItem)
             });
@@ -108,7 +112,8 @@ function generateNote(id){
             
             $("#displayTitle").html(title);
             $("#updateTitle").val(title);
-            $("#updateContent, #displayContent").html(content);
+            $("#displayContent").html(content);
+            $("#updateContent").val(content);
             $("#deleteNotey").val(id);
 
         },
