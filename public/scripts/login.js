@@ -49,8 +49,20 @@ function login(){
         data: JSON.stringify(userData),
         success: function(result){
             var token = result;
-            //goToHome(token);
-            window.location='/';
+            console.log(token);
+            console.log(result.includes(token));
+
+            if(result.includes(token)){
+                console.log('it worked');
+                
+                // saves token in localStorage
+                var getInput = token;
+                localStorage.setItem("storageName",getInput); 
+
+                window.location='/';
+               // goToHome("storageName");                           
+            }           
+           
         },
         error: function(error) { 
             alert(error.errorMessage); 
