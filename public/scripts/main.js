@@ -1,6 +1,6 @@
 var token = localStorage.getItem('userToken');
+// We should add a check to see if the logged in user is valid. but we can't since the api doesn't provide us with something like that.
 if (token === null){
-    console.log('not logged in');
     logout();
 }
 
@@ -63,14 +63,12 @@ $(function(){
             data:JSON.stringify(noteData),
              
             success: function(result){
-                console.log("sent");
                 console.log(result);
                 $("#noteTitle").val('');
                 $("#content").val('');
                 fetchNoteys();
             },
             error: function(error){
-                console.log("failure");
                 console.log(error);
             },
         });
@@ -84,7 +82,6 @@ $(function(){
 
 // Global function so we can call it whenever
 function logout(){
-    console.log("logged out");
     localStorage.clear();
     window.location = "/login";
 }
@@ -93,10 +90,18 @@ function openNotey(button){
     generateNote(button.value);
     $("#updateTitle").hide();
     $("#displayTitle").show();
+    
     $("#updateContent").hide();
     $("#displayContent").show();
+    
     $("#updateNotey").show();
     $("#saveUpdatedNotey").hide();
+
+    $("#closeNotey").show();
+    $("#cancelUpdateNotey").hide();
+
+    $("#deleteNotey").show();
+
     $("#myUpdateModal").modal('toggle');
 }
 
@@ -114,7 +119,7 @@ function generateNote(id){
             $("#updateTitle").val(title);
             $("#displayContent").html(content);
             $("#updateContent").val(content);
-            $("#deleteNotey").val(id);
+            $("#deleteNotey, #saveUpdatedNotey").val(id);
 
         },
         error: function(error) { 
@@ -128,7 +133,6 @@ function deleteNotey(id){
         method: 'DELETE',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/delete/' + id,
         success: function(result){
-            console.log('Deleted notey');
             fetchNoteys();
         },
         error: function(error){
@@ -142,10 +146,17 @@ $(function(){
     $("#updateNotey").click(function(){
         $("#displayTitle").hide();
         $("#updateTitle").show();
+
         $("#displayContent").hide();
         $("#updateContent").show();
+
         $("#updateNotey").hide();
         $("#saveUpdatedNotey").show();
+
+        $("#closeNotey").hide();
+        $("#cancelUpdateNotey").show();
+
+         $("#deleteNotey").hide();
     });
 });
 
@@ -162,7 +173,7 @@ $(function(){
 
         $.ajax({
             method: 'PATCH',
-            url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/{id}',
+            url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/' + this.value,
             data: JSON.stringify(noteData),
             success: function(result){
                 $("#displayTitle").html(title);
@@ -170,15 +181,42 @@ $(function(){
 
                 $("#updateTitle").hide();
                 $("#displayTitle").show();
+
                 $("#updateContent").hide();
                 $("#displayContent").show();
+
                 $("#updateNotey").show();
                 $("#saveUpdatedNotey").hide();
+
+                $("#closeNotey").show();
+                $("#cancelUpdateNotey").hide();
+
+                $("#deleteNotey").show();
+
+
             },
             error: function(error){
                 
             }
         });
+    });
+});
+
+$(function(){
+    $("#cancelUpdateNotey").click(function(){
+        $("#updateTitle").hide();
+        $("#displayTitle").show();
+
+        $("#updateContent").hide();
+        $("#displayContent").show();
+
+        $("#updateNotey").show();
+        $("#saveUpdatedNotey").hide();
+
+        $("#closeNotey").show();
+        $("#cancelUpdateNotey").hide();
+
+        $("#deleteNotey").show();
     });
 });
 
