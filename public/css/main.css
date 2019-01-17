@@ -1,3 +1,20 @@
+#addNotey:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25);
+}
+
+#addNotey{
+    overflow: auto;
+}
+
+#add{
+    overflow: auto;
+}
+
+.navbar-brand{
+    margin-right: 1rem;
+}
+
 #errorDiv{
     display: flex;
     align-items: center;
