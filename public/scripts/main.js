@@ -27,7 +27,6 @@ function fetchNoteys(){
                 listItem += value['date'];
                 listItem += '</small>';
                 listItem += '</button>';
-                $("#notey-list").empty();
                 $("#notey-list").append(listItem)
             });
             
