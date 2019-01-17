@@ -174,6 +174,7 @@ $(function(){
         $.ajax({
             method: 'PATCH',
             url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/' + this.value,
+            contentType: "application/json",
             data: JSON.stringify(noteData),
             success: function(result){
                 $("#displayTitle").html(title);
