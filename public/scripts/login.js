@@ -21,7 +21,25 @@ $(document).ready(function(){
             window.location="/login";
         },
         error: function(error){
-            alert(error.errorMessage);
+            $('#error-footer').empty();
+            var err = JSON.parse(error.responseText);
+            var $p = $('<p>').text(err.errorMessage);
+            $('#error-footer').append(
+                $p
+            );
+            $('#regUsername').css('border', '');
+            $('#regEmail').css('border', '');
+            $('#regPassword').css('border', '');
+            if(err.errorMessage == "User name already exists!"){
+                $('#regUsername').css('border', '1px solid #ff0000');
+            }
+            else{
+                $('#regUsername').css('border', '1px solid #ff0000');
+                $('#regEmail').css('border', '1px solid #ff0000');
+                $('#regPassword').css('border', '1px solid #ff0000');
+            }
+            $p.css('color', 'red');
+            $p.css('font-weight', 'bold');
         }
     });
 } 
@@ -65,7 +83,18 @@ function login(){
            
         },
         error: function(error) { 
-            alert(error.errorMessage); 
+            $('#error-footer').empty();
+            var err = JSON.parse(error.responseText);
+            var $p = $('<p>').text(err.errorMessage);
+            $('#error-footer').append(
+                $p
+            );
+            $('#regUsername').css('border', '');
+            $('#regPassword').css('border', '');
+            $('#inputUsername').css('border', '1px solid #ff0000');
+            $('#inputPassword').css('border', '1px solid #ff0000');
+            $p.css('color', 'red');
+            $p.css('font-weight', 'bold'); 
         }
     });
 }
