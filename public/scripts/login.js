@@ -1,3 +1,4 @@
+var error;
 $(document).ready(function(){
     $("#btnReg").click(function(){
         insertIntoDB();   
@@ -23,7 +24,16 @@ $(document).ready(function(){
         error: function(error){
             $('#error-footer').empty();
             var err = JSON.parse(error.responseText);
-            var $p = $('<p>').text(err.errorMessage);
+            if(err.errorCode == 1.0 || err.errorCode == 1.1){
+                error = "No special characters allowed!";
+            }
+            else if(err.errorCode == 1.3){
+                error = "User name is already taken!";
+            }
+            else if(err.errorCode == 1.4){
+                error = "You must fill all fields!";
+            }
+            var $p = $('<p>').text(error);
             $('#error-footer').append(
                 $p
             );
@@ -85,7 +95,10 @@ function login(){
         error: function(error) { 
             $('#error-footer').empty();
             var err = JSON.parse(error.responseText);
-            var $p = $('<p>').text(err.errorMessage);
+            if(err.errorCode == 6.0 || err.errorCode == 6.1){
+                error = "User name or password doesn't match!";
+            }
+            var $p = $('<p>').text(error);
             $('#error-footer').append(
                 $p
             );

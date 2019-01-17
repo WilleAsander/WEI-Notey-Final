@@ -1,3 +1,4 @@
+var error;
 var token = localStorage.getItem('userToken');
 // We should add a check to see if the logged in user is valid. but we can't since the api doesn't provide us with something like that.
 if (token === null){
@@ -37,11 +38,17 @@ function fetchNoteys(){
         },
         error: function(error){
             var err = JSON.parse(error.responseText);
+            if(err.errorCode == 3.1){
+                error = "You don't have any noteys!";
+            }
             var $errorNote = $('<i class="far fa-sticky-note fa-lg">');
             var $errorP = $('<p class="left">').append(
                 $errorNote,
-                err.errorMessage
+                error
+                
+
             );
+            
             var $errorDiv = $('<div id="errorDiv">');
             $errorDiv.append(
                 $errorP
