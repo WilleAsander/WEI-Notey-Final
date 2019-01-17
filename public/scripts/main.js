@@ -36,7 +36,24 @@ function fetchNoteys(){
             });
         },
         error: function(error){
-            console.log(error);
+            var err = JSON.parse(error.responseText);
+            var $errorNote = $('<i class="far fa-sticky-note fa-lg">');
+            var $errorP = $('<p class="left">').append(
+                $errorNote,
+                err.errorMessage
+            );
+            var $errorDiv = $('<div id="errorDiv">');
+            $errorDiv.append(
+                $errorP
+            );
+            $("#notey-list").empty();
+            $('#notey-list').append(
+                $errorDiv
+            );
+            $errorP.css('font-style', 'italic');
+            $errorP.css('font-weight', 'bold');
+            $errorP.css('font-size', '200%');
+            $errorP.css('opacity', '0.5');
         }
     });
 
@@ -47,11 +64,24 @@ $(function(){
     $("#saveNotey").click(function(){
         var title = $("#noteTitle").val();
         var text = $("#content").val();
-        var noteDate = new Date().toISOString();
+        var noteDate = new Date();
+        var dd = noteDate.getDate();
+        var mm = noteDate.getMonth()+1; //January is 0!
+        var yyyy = noteDate.getFullYear();
+
+        if(dd<10) {
+            dd = '0'+dd
+        } 
+
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+
+        noteDate = mm + '/' + dd + '/' + yyyy;
         var noteData = {
-                heading: title,
-                content: text,
-                date: noteDate
+            heading: title,
+            content: text,
+            date: noteDate
         };
         $.ajax({
             method: 'POST',
@@ -69,7 +99,7 @@ $(function(){
                 fetchNoteys();
             },
             error: function(error){
-                console.log(error);
+                var err = JSON.parse(error.responseText);
             },
         });
     });
@@ -164,7 +194,25 @@ $(function(){
     $("#saveUpdatedNotey").click(function(){
         var title = $("#updateTitle").val();
         var text = $("#updateContent").val();
-        var noteDate = new Date().toISOString();
+        var noteDate = new Date();
+        var dd = noteDate.getDate();
+        var mm = noteDate.getMonth()+1; //January is 0!
+        var yyyy = noteDate.getFullYear();
+
+        if(dd<10) {
+            dd = '0'+dd
+        } 
+
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+
+        noteDate = mm + '/' + dd + '/' + yyyy;
+        var noteData = {
+            heading: title,
+            content: text,
+            date: noteDate
+        };
         var noteData = {
                 heading: title,
                 content: text,
@@ -197,7 +245,7 @@ $(function(){
 
             },
             error: function(error){
-                
+                var err = JSON.parse(error.responseText);
             }
         });
     });
