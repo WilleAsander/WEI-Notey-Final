@@ -29,6 +29,9 @@
         
 
     </nav>
+    <!-- List -->
+    <div class="container-fluid">
+        <div id="notey-list" class="row col-form-label">
     <div id="createNotey" class="">
         <div id="createHeader">
             <h4 class="title">Add New Notey</h4> 
@@ -79,12 +82,6 @@
                 <button id="cancelUpdateNotey" type="button" class="btn btn-danger" onClick="updateNoteyClose()">Cancel</button>
             </div>
         </div>
-
-    <!-- List -->
-    <div class="container">
-        <div id="notey-list" class="list-group list-group-flush m-3">
-        </div>
-    </div>
         <script>
                 CKEDITOR.replace( 'content' );
                 CKEDITOR.config.height = 600;
