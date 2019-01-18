@@ -19,7 +19,7 @@ function fetchNoteys(){
             'Authorization': token
         },
         success: function(notes){
-            $.each(notes.reverse(), function(index, value, ){
+            $.each(notes.reverse(), function(index, value ){
                 var listItem = '<button value="'
                 listItem += value['id']
                 listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + value['heading']
