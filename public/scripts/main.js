@@ -20,17 +20,17 @@ function fetchNoteys(){
         },
         success: function(notes){
             $.each(notes.reverse(), function(index, value ){
-                var listItem = '<button value="'
-                listItem += value['id']
-                listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + value['heading']
+                var listItem = '<button value="';
+                listItem += value['id'];
+                listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + value['heading'];
                 listItem += '<small class="float-right">';
                 // We could add a date difference calculator here
                 listItem += value['date'];
                 listItem += '</small>';
                 listItem += '</div>';
-                listItem += '<div id="fade_bottom" class="noteycontent">' + value['content'] + '</div>'
+                listItem += '<div id="fade_bottom" class="noteycontent">' + value['content'] + '</div>';
                 listItem += '</button>';
-                $("#notey-list").append(listItem)
+                $("#notey-list").append(listItem);
             });
             
             // Add onclick listener after listItems have been created
@@ -72,6 +72,8 @@ function fetchNoteys(){
 
 $(function(){
     $("#saveNotey").click(function(){
+    });
+});
 function createNote(){
         var title = $("#noteTitle").val();
         var text = CKEDITOR.instances.content.getData();
@@ -306,6 +308,7 @@ $(function(){
             contentType: "application/json",
             data: JSON.stringify(noteData),
             success: function(result){
+                fetchNoteys();
                 generateNote(id);
                 updateNoteyClose();
 
