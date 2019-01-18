@@ -22,7 +22,7 @@ function fetchNoteys(){
             $.each(notes.reverse(), function(index, value ){
                 var listItem = '<button value="';
                 listItem += value['id'];
-                listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + value['heading'];
+                listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + '<h3 class= "headingsize" >'+ value['heading'] + '</h3>' ;
                 listItem += '<small class="float-right">';
                 // We could add a date difference calculator here
                 listItem += value['date'];
