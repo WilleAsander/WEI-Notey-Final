@@ -7,8 +7,10 @@ if (token === null){
 // Fetches all notes on site load
 $(fetchNoteys);
 function fetchNoteys(){
+    
     $("#notey-list").empty();
     $("#notey-list a").off();
+
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
@@ -17,15 +19,16 @@ function fetchNoteys(){
             'Authorization': token
         },
         success: function(notes){
-            $.each(notes.reverse(), function(index, value){
+            $.each(notes.reverse(), function(index, value, ){
                 var listItem = '<button value="'
                 listItem += value['id']
-                listItem +='" class="list-group-item list-group-item-action">';
-                listItem += value['heading'];
+                listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + value['heading']
                 listItem += '<small class="float-right">';
                 // We could add a date difference calculator here
                 listItem += value['date'];
                 listItem += '</small>';
+                listItem += '</div>';
+                listItem += '<div id="fade_bottom" class="noteycontent">' + value['content'] + '</div>'
                 listItem += '</button>';
                 $("#notey-list").append(listItem)
             });
@@ -58,7 +61,9 @@ function fetchNoteys(){
     });
 
     
+    
 }
+
 
 $(function(){
     $("#saveNotey").click(function(){
