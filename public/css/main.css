@@ -3,6 +3,10 @@
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25);
 }
 
+nav{
+    z-index: 1000;
+}
+
 #addNotey{
     overflow: auto;
 }
@@ -26,7 +30,6 @@
     min-height: 200px;
     align-items: center;
 }
-
 .noteyheader {
     height: max-content;
     width: 100%;
@@ -53,4 +56,129 @@
     color: black;
     padding: 10px;
 }
+#createNotey{
+    display: none;
+    margin-top: 5%;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    width: 100%;
 
+}
+
+#createHeader{
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+    border-bottom: 1px solid;
+    min-width: 375px;
+}
+
+#createBody{
+    width: 50%;
+    margin: 0 auto;
+    min-width: 375px;
+    height: 100%;
+}
+
+#createFooter{
+    width: 50%;
+    margin: 0 auto;
+    min-width: 375px;
+    height: auto;
+    max-width: 902px;
+
+}
+
+#viewNotey{
+    display: none;
+    margin-top: 5%;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+#viewHeader{
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+    border-bottom: 1px solid;
+    min-width: 375px;
+}
+
+#viewBody{
+    width: 50%;
+    margin: 0 auto;
+    min-width: 375px;
+    height: 90%;
+}
+
+#viewFooter{
+    width: 50%;
+    margin: 0 auto;
+    min-width: 375px;
+    height: auto;
+    max-width: 902px;
+
+}
+
+#editNotey{
+    display: none;
+    margin-top: 5%;
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    width: 100%;
+
+}
+
+#editHeader{
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+    border-bottom: 1px solid;
+    min-width: 375px;
+}
+
+#editBody{
+    width: 50%;
+    margin: 0 auto;
+    min-width: 375px;
+    height: 100%;
+}
+
+#editFooter{
+    width: 50%;
+    margin: 0 auto;
+    min-width: 375px;
+    height: auto;
+    max-width: 902px;
+
+}
+
+#closeButton{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 6%;
+}
+
+#save{
+    float: right;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+.title{
+    display: inline-block;
+    margin-left:50%;
+    transform: translateX(-50%);
+    
+}
