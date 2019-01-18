@@ -221,6 +221,7 @@ function updateNotey(){
         $('#saveUpdatedNotey').css('display', 'inline-block');
         $('#cancelUpdateNotey').css('display', 'inline-block');
         $('#viewFooter').css('display', 'none');
+        $('#viewBody').css('display', 'none');
     }
 }
 
@@ -231,6 +232,7 @@ function updateNoteyClose(){
         $('#editNotey').css('display', 'none');
     }, 1000);
     $('#viewFooter').css('display', 'block');
+    $('#viewBody').css('display', 'block');
 }
 
 function closeAll(){

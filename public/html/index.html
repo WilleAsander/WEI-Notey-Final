@@ -45,7 +45,7 @@
             <label for="content" class="col-form-label">Note:</label>                  
             <textarea name="content" rows="28" id="content" class="editor form-control col-xs-12"></textarea>
         </div>
-        <div id="createFooter">
+        <div id="createFooter" class="bg-primary">
             <button id="save" type="button" class="btn btn-primary btn-lg" data-dismiss="modal" id="saveNotey" onClick="createNote()"><i class="fas fa-save"></i></button>
         </div>
     </div>
@@ -57,7 +57,7 @@
         <div id="viewBody">
 
         </div>
-        <div id="viewFooter">
+        <div id="viewFooter" class="bg-primary">
             <button id="updateNotey" type="button" class="btn btn-primary" onClick="updateNotey()"><i class="fas fa-edit"></i></button>
             <button id="deleteNotey" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
             
@@ -75,9 +75,9 @@
                     <input type="text" class="form-control" id="editTitle">
                 </div>
                 <label for="content" class="col-form-label">Note:</label>                  
-                <textarea name="editContent" rows="28" id="editContent" class="editor form-control col-xs-12"></textarea>
+                <textarea name="editContent" rows="30" id="editContent" class="editor form-control col-xs-12"></textarea>
             </div>
-            <div id="editFooter">
+            <div id="editFooter" class="bg-primary">
                 <button id="saveUpdatedNotey" type="button" class="btn btn-primary"><i class="fas fa-save"></i></button>
                 <button id="cancelUpdateNotey" type="button" class="btn btn-danger" onClick="updateNoteyClose()">Cancel</button>
             </div>
