@@ -20,17 +20,20 @@ function fetchNoteys(){
         },
         success: function(notes){
             $.each(notes.reverse(), function(index, value ){
-                var listItem = '<button value="';
-                listItem += value['id'];
-                listItem +='" class="btn btn-outline-light btn-secondary col-sm-4 noteybox"><div class="noteyheader float-left">' + value['heading'];
-                listItem += '<small class="float-right">';
-                // We could add a date difference calculator here
-                listItem += value['date'];
-                listItem += '</small>';
-                listItem += '</div>';
-                listItem += '<div id="fade_bottom" class="noteycontent">' + value['content'] + '</div>';
-                listItem += '</button>';
-                $("#notey-list").append(listItem);
+                var $div = $('<div class="noteyheader float-left">').text(value['heading']);
+                var $small = $('<small class="float-right">');
+                var $div2 = $('<div id="fade_bottom" class="noteycontent">');
+                var $append = $(value['content']);
+                var $button = $('<button value="'+ value['id'] + '"class="btn btn-outline-light btn-secondary col-sm-4 noteybox">').append(
+                    $div.append(
+                        $small
+                    ),
+                    $div2.append(
+                        $append
+                    )
+
+                );
+                $("#notey-list").append($button);
             });
             
             // Add onclick listener after listItems have been created
