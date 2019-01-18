@@ -72,7 +72,7 @@ nav{
 #createHeader{
     width: 50%;
     margin: 0 auto;
-    padding-bottom: 2%;
+    padding: 2%;
     border-bottom: 1px solid;
     min-width: 375px;
 }
@@ -109,25 +109,25 @@ nav{
 #viewHeader{
     width: 50%;
     margin: 0 auto;
-    padding-bottom: 2%;
+    padding: 2%;
     border-bottom: 1px solid;
     min-width: 375px;
 }
 
 #viewBody{
     width: 50%;
-    margin: 0 auto;
+    margin: auto;
     min-width: 375px;
-    height: 90%;
+    height: 80%;
+    padding:10px;
 }
 
 #viewFooter{
-    width: 50%;
-    margin: 0 auto;
-    min-width: 375px;
-    height: auto;
-    max-width: 902px;
-
+    position: fixed;
+    bottom: 0px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
 }
 
 #editNotey{
@@ -136,16 +136,15 @@ nav{
     position: relative;
     z-index: 5;
     background-color: white;
-    margin: 0 auto;
+    margin: auto;
     position: absolute;
     width: 100%;
-
 }
 
 #editHeader{
     width: 50%;
     margin: 0 auto;
-    padding-bottom: 2%;
+    padding: 2%;
     border-bottom: 1px solid;
     min-width: 375px;
 }
@@ -155,15 +154,16 @@ nav{
     margin: 0 auto;
     min-width: 375px;
     height: 100%;
+    padding: 10px;
 }
 
 #editFooter{
-    width: 50%;
+    position: fixed;
+    bottom: 0px;
     margin: 0 auto;
-    min-width: 375px;
     height: auto;
-    max-width: 902px;
-
+    width: 100%;
+    text-align: center;
 }
 
 #closeButton{
