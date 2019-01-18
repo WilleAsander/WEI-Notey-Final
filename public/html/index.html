@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/magic.min.css">
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="scripts/ckeditor/ckeditor.js"></script>
     <script src="scripts/main.js"></script>
 
 </head>
@@ -20,84 +22,78 @@
         <form class="form-inline">
         <a class="navbar-brand" href="#">Notey</a>
 
-            <button id="addNotey" class="btn btn-outline-light" type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus"></i></button>
+            <button id="addNotey" class="btn btn-outline-light" type="button" onClick="transitionAdd()"><i class="fas fa-plus"></i></button>
         </form>
             <button id="logout" class="btn btn-danger ml-3" type="button"> <i class="fas fa-sign-out-alt"></i></button>
         
         
 
     </nav>
-
     <!-- List -->
-    <div class="container-fluid">
-        <div id="notey-list" class="row col-form-label">
+    
+
+    <div id="createNotey" class="">
+        <div id="createHeader">
+            <h4 class="title">Add New Notey</h4> 
+            <button id="closeButton" type="button" class="close btn-danger" onClick="transitionClose()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="createBody">
+            <div class="form-group">
+                <label for="noteTitle" class="col-form-label">Set Title:</label>
+                <input type="text" class="form-control" id="noteTitle">
+            </div>
+            <label for="content" class="col-form-label">Note:</label>                  
+            <textarea name="content" rows="28" id="content" class="editor form-control col-xs-12"></textarea>
+        </div>
+        <div id="createFooter">
+            <button id="save" type="button" class="btn btn-primary btn-lg" data-dismiss="modal" id="saveNotey" onClick="createNote()"><i class="fas fa-save"></i></button>
+        </div>
+    </div>
+    <div id="viewNotey">
+        <div id="viewHeader">
+            <h4 id="viewTitle" class="title"></h4>
+            <button id="closeButton" type="button" class="close btn-danger" onClick="closeNotey()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="viewBody">
+
+        </div>
+        <div id="viewFooter">
+            <button id="updateNotey" type="button" class="btn btn-primary" onClick="updateNotey()"><i class="fas fa-edit"></i></button>
+            <button id="deleteNotey" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
             
         </div>
+
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <!-- Modal header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Add New Notey</h4>                                                           
-                        
-                    
-                    <button type="button" class="close btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                               
+    <div id="editNotey" class="">
+            <div id="editHeader">
+                <h4 class="title">Edit Notey</h4> 
+                <button id="closeButton" type="button" class="close btn-danger" onClick="closeAll()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="editBody">
+                <div class="form-group">
+                    <label for="noteTitle" class="col-form-label">Set Title:</label>
+                    <input type="text" class="form-control" id="editTitle">
                 </div>
-                <!-- /Modal header ends/-->
-                    <div class="modal-body"> 
-                        <div class="form-group">
-                                <label for="noteTitle" class="col-form-label">Set Title:</label>
-                                <input type="text" class="form-control" id="noteTitle">
-                        </div>
-                        <label for="content" class="col-form-label">Note:</label>                  
-                        <textarea id="content" class="form-control col-xs-12"></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" id="saveNotey"><i class="fas fa-save"></i></button>
-                </div>
+                <label for="content" class="col-form-label">Note:</label>                  
+                <textarea name="editContent" rows="28" id="editContent" class="editor form-control col-xs-12"></textarea>
+            </div>
+            <div id="editFooter">
+                <button id="saveUpdatedNotey" type="button" class="btn btn-primary"><i class="fas fa-save"></i></button>
+                <button id="cancelUpdateNotey" type="button" class="btn btn-danger" onClick="updateNoteyClose()">Cancel</button>
             </div>
         </div>
-    </div>
-
-    <!-- Modal 2 for update -->
-    <div class="modal fade" id="myUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <!-- Modal header -->
-                    <div class="modal-header">
-                        <h4 id="displayTitle" class="modal-title"></h4> 
-                        <input id="updateTitle" type="text" class="form-control">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    
-                    </div>
-                    <!-- /Modal header ends/-->
-                    <div class="modal-body"> 
-                        <!--  This part is set title which isn't needed when just browsing noteys
-                            <div class="form-group">
-                                <label for="noteUpdatedTitle" class="col-form-label">Set Title:</label>
-                                <input type="text" class="form-control" id="noteUpdatedTitle">
-                        </div>
-                    -->
-                        <!--
-                        <label id="updateLabel" for="updadedContent" class="col-form-label">Note:</label>
-                        -->
-                        <textarea id="updateContent" class="form-control col-xs-12"></textarea>
-                        <p id="displayContent"></p>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button id="saveUpdatedNotey" type="button" class="btn btn-primary"><i class="fas fa-save"></i></button>
-                        <button id="deleteNotey" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
-                        <button id="cancelUpdateNotey" type="button" class="btn btn-danger">Cancel</button>
-                        <button id="updateNotey" type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div> 
+        <div class="container-fluid">
+            <div id="notey-list" class="row col-form-label"></div>
+        </div>
+        <script>
+                CKEDITOR.replace( 'content' );
+                CKEDITOR.config.height = 600;
+                CKEDITOR.config.skin = 'moono';
+                CKEDITOR.config.removeButtons = 'About';
+                CKEDITOR.replace( 'editContent' );
+                CKEDITOR.config.height = 600;
+                CKEDITOR.config.skin = 'moono'; 
+                CKEDITOR.config.removeButtons = 'About'; 
+        </script>
 </body>
 </html>
