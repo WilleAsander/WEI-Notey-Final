@@ -49,12 +49,13 @@ nav{
 
 .noteycontent {
     width: 100%;
-    height: 90%;
+    height: 85%;
     text-align: left;
     background-color: #fcffb5;
     border-radius: 3px;
     color: black;
     padding: 10px;
+    overflow: hidden;
 }
 #createNotey{
     display: none;
