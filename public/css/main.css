@@ -183,3 +183,19 @@ nav{
     transform: translateX(-50%);
     
 }
+
+#profile{
+    right: 0;
+}
+
+#profile a{
+    text-decoration: none;
+    color: red;
+}
+
+#profile a:hover{
+    color: red;
+}
+#logout{
+    width: 100%;
+}
