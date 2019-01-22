@@ -2,7 +2,7 @@
 
 ## HEROKU https://notey1.herokuapp.com/
 
-##Functions
+**Functions
 
 A user register an account to get access to Notey. Notey allows for the creation, deletion, storage and updating of personal notes. 
 
