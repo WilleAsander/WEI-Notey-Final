@@ -23,7 +23,9 @@ function fetchNoteys(){
                 var $div = $('<div class="noteyheader float-left">').text(value['heading']);
                 var $small = $('<small class="float-right">');
                 var $div2 = $('<div id="fade_bottom" class="noteycontent">');
-                var $append = $(value['content']);
+                var converter = new showdown.Converter();
+                var converted = converter.makeHtml(value['content']); 
+                var $append = $(converted);
                 var $button = $('<button value="'+ value['id'] + '"class="btn btn-outline-light btn-secondary col-sm-4 noteybox">').append(
                     $div.append(
                         $small
@@ -79,7 +81,7 @@ $(function(){
 });
 function createNote(){
         var title = $("#noteTitle").val();
-        var text = CKEDITOR.instances.content.getData();
+        var text = $('#content').val();
         var noteDate = new Date();
         var dd = noteDate.getDate();
         var mm = noteDate.getMonth()+1; //January is 0!
@@ -249,12 +251,14 @@ function generateNote(id){
             // sets the value of noteys data into title and content
             var title = result.heading;
             var content = result.content;
-            
+            console.log(content);
+            var converter = new showdown.Converter();
+            var converted = converter.makeHtml(content);
+            console.log(converted);
             $("#viewTitle").html(title);
             $("#editTitle").val(title);
-            $("#viewBody").html(content);
+            $("#viewBody").html(converted);
             $("#editContent").val(content);
-            CKEDITOR.instances.editContent.setData(content);
             $("#deleteNotey, #saveUpdatedNotey").val(id);
 
         },
@@ -281,7 +285,7 @@ function deleteNotey(id){
 $(function(){
     $("#saveUpdatedNotey").click(function(){
         var title = $("#editTitle").val();
-        var text = CKEDITOR.instances.editContent.getData();
+        var text = $('#editContent').val();
         var noteDate = new Date();
         var dd = noteDate.getDate();
         var mm = noteDate.getMonth()+1; //January is 0!
@@ -350,3 +354,21 @@ $(function(){
         deleteNotey(this.value);
     });
 });
+
+function generateDetails(){
+    $.ajax({
+        method: 'GET',
+        headers: {
+            'Authorization': token,
+        },
+        url: 'https://api-notey.herokuapp.com/api/1.0/user/decode',
+        success: function(result){
+            console.log(result);
+            $('#userName').text(result.userName);
+        },
+        error: function(error){
+            var err = JSON.parse(error.responseText);
+        }
+
+    });
+}
