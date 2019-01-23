@@ -7,10 +7,8 @@ if (token === null){
 // Fetches all notes on site load
 $(fetchNoteys);
 function fetchNoteys(){
-    
     $("#notey-list").empty();
     $("#notey-list a").off();
-
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
@@ -19,21 +17,41 @@ function fetchNoteys(){
             'Authorization': token
         },
         success: function(notes){
-            $.each(notes.reverse(), function(index, value ){
-                var $div = $('<div class="noteyheader float-left">').text(value['heading']);
+            $.each(notes.reverse(), function(index, value){
+                var $button = $('<button id="noteyItem" value="'+value['id']+'" class="list-group-item list-group-item-action">');
                 var $small = $('<small class="float-right">');
-                var $div2 = $('<div id="fade_bottom" class="noteycontent">');
+                var $headerWrapper = $('<div id="headerWrapper">');
+                $headerWrapper.css('font-weight', 'bold');
+                $headerWrapper.css('font-size', '115%');
+                var $small2 = $('<small class="float-bottom" id="noteyContent">');
                 var converter = new showdown.Converter();
-                var converted = converter.makeHtml(value['content']); 
+                var converted = converter.makeHtml(value['content']);
+                var clean = converted.replace(/<\/?[^>]+(>|$)/g, "");
+                var modified = $('<p>');
                 var $append = $(converted);
-                var $button = $('<button value="'+ value['id'] + '"class="btn btn-outline-light btn-secondary col-sm-4 noteybox">').append(
-                    $div.append(
-                        $small
+                if (clean.replace(/ /g,'').length > 35){
+                    cutted = clean.substring(0, 35);
+                    cutted +="...";
+                    modified.append(cutted);
+                    
+                }
+                else{
+                    modified = clean;
+                }
+
+                $button.append(
+                    $headerWrapper.append(
+                        value['heading']
                     ),
-                    $div2.append(
-                        $append
+                    
+                    $small.append(
+                        value['date']
+                    ),
+                    $small2.append(
+                        modified
                     )
 
+                    
                 );
                 $("#notey-list").append($button);
             });

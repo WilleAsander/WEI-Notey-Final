@@ -24,6 +24,24 @@ nav{
     z-index: 1000;
 }
 
+#notey-list{
+    padding: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#noteyItem{
+    border: none;
+    border-bottom: 1px solid #D7D7D7;
+    margin-top: 1%;
+}
+#noteyItem:hover{
+    cursor: pointer;
+}
+
+#noteyContent{
+    color: #999999;
+}
 
 
 #addNotey{
@@ -48,33 +66,6 @@ nav{
     margin: 10% 0;
     min-height: 200px;
     align-items: center;
-}
-.noteyheader {
-    height: max-content;
-    width: 100%;
-    text-align: left;
-    background-color: #fcffb5;
-    border-radius: 3px;
-    color: black;
-    padding: 10px;
-}
-
-.noteybox {
-    height: 300px;
-    background-color: #fcffb5;
-    border: white 3px solid;
-    margin-top: 10px;
-}
-
-.noteycontent {
-    width: 100%;
-    height: 85%;
-    text-align: left;
-    background-color: #fcffb5;
-    border-radius: 3px;
-    color: black;
-    padding: 10px;
-    overflow: hidden;
 }
 #createNotey{
     display: none;
