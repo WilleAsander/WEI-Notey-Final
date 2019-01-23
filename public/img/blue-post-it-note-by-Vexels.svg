@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Designed by Vexels.com - 2017 All Rights Reserved - https://vexels.com/terms-and-conditions/-->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1200 1200" enable-background="new 0 0 1200 1200" xml:space="preserve">
+<g>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="601.136" y1="680.775" x2="-106.9736" y2="1357.3594" gradientTransform="matrix(0.994 -0.1097 0.1097 0.994 -102.9967 13.5984)">
+		<stop  offset="0.4785" style="stop-color:#010101"/>
+		<stop  offset="0.5394" style="stop-color:#070707"/>
+		<stop  offset="0.6079" style="stop-color:#171616"/>
+		<stop  offset="0.6801" style="stop-color:#2A2929"/>
+		<stop  offset="0.755" style="stop-color:#434140"/>
+		<stop  offset="0.8319" style="stop-color:#666363"/>
+		<stop  offset="0.9105" style="stop-color:#9C9999"/>
+		<stop  offset="0.989" style="stop-color:#EBEAE9"/>
+		<stop  offset="1" style="stop-color:#FFFFFF"/>
+	</linearGradient>
+	<polygon opacity="0.3" fill="url(#SVGID_1_)" points="53.192,136.657 145.545,1150 1145.993,1039.539 	"/>
+	<g>
+		<polygon fill="#85B7D1" points="54.046,133.709 155.699,1054.38 457.493,1085.679 1146.808,1036.595 1061.301,50 		"/>
+		<polygon fill="#9BCADA" points="457.837,1085.641 126.452,789.485 155.699,1054.38 		"/>
+	</g>
+</g>
+</svg>

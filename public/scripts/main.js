@@ -184,7 +184,7 @@ $(function(){
 // Global function so we can call it whenever
 function logout(){
     localStorage.clear();
-    window.location = "/login";
+    window.location = "/start";
 }
 
 function openNotey(button){
@@ -372,3 +372,12 @@ function generateDetails(){
 
     });
 }
+
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+  
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }

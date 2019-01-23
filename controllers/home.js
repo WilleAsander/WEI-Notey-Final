@@ -11,3 +11,10 @@ exports.Login = function(req,res){
 exports.Register = function(req,res){
     res.sendFile(path.resolve('public/html/register.html'));
 };
+
+exports.Start = function(req,res){
+    res.sendFile(path.resolve('public/html/start.html'));
+};
+exports.Error = function(req,res){
+    res.sendFile(path.resolve('public/html/error.html'));
+};

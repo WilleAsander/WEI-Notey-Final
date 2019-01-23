@@ -14,23 +14,32 @@
 
 </head>
 <body>
-    <div class="container w-50 p-3">
-        <h2>Login</h2>
-        <form>
-            <div class="form-group">
-                <label for="inputUsername">Username: </label>
-                <input type="text" class="form-control" id="inputUsername" placeholder="Enter username">
-            </div>
-            <div class="form-group">
-                <label for="inputPassword">Password: </label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Enter password">
-            </div>
-            <div id="error-footer">
+    <!--<div id="barba-wrapper">-->
+        <!--<div class="barba-container">-->
+            <div class="login-container">
+                <div id="form-container" class="container w-50 p-3">
+                    <h2>Login</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="inputUsername">Username: </label>
+                            <input type="text" class="form-control" id="inputUsername" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password: </label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Enter password">
+                        </div>
+                        <div id="error-footer">
 
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btnLogin">Login now!</button>
+                        <p><a href="start">Are you new? Click here!</a></p>
+                    </form>
+                </div>
             </div>
-            <button type="button" class="btn btn-primary" id="btnLogin">Login now!</button>
-            <p><a href="register">Are you new? Click here!</a></p>
-        </form>
-    </div>
+        <!--</div>-->
+    <!--</div>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" type="text/javascript"></script>
+    <script src="scripts\transitions.js"></script>
 </body>
 </html>
