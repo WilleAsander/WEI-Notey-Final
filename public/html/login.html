@@ -6,6 +6,7 @@
     <title>Login</title>
     <!-- Stylesheet-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
@@ -14,32 +15,25 @@
 
 </head>
 <body>
-    <!--<div id="barba-wrapper">-->
-        <!--<div class="barba-container">-->
-            <div class="login-container">
-                <div id="form-container" class="container w-50 p-3">
-                    <h2>Login</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="inputUsername">Username: </label>
-                            <input type="text" class="form-control" id="inputUsername" placeholder="Enter username">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword">Password: </label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Enter password">
-                        </div>
-                        <div id="error-footer">
-
-                        </div>
-                        <button type="button" class="btn btn-primary" id="btnLogin">Login now!</button>
-                        <p><a href="start">Are you new? Click here!</a></p>
-                    </form>
-                </div>
+    <div id="backButton" class="container">
+            <a href="start"><i id="backAngle" class="fas fa-angle-left"></i></a>
+    </div>
+    <div id="form-container" class="container col-lg-3">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
             </div>
-        <!--</div>-->
-    <!--</div>-->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" type="text/javascript"></script>
-    <script src="scripts\transitions.js"></script>
+            <div class="form-group">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+            <p id="linkLogin"><a href="register">Don't have an account? Sign up!</a></p>
+            <input type="submit" class="btn btn-primary form-control" id="btnLogin" value="Log In">
+            <div id="error-footer" class="form-group">
+                
+            </div>
+            
+        </form>
+            
+    </div>
 </body>
 </html>
