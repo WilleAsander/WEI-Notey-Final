@@ -1,15 +1,19 @@
-html, body {
+* {
     margin: 0;
     padding: 0;
-    border: 0;
 }
 
 html{
     height: 100%;
-  }
-  body{
-    min-height: 100%;
-  }
+}
+
+body{
+    height: 100%;
+}
+
+h1{
+    margin: 0;
+ }
 
 #addNotey:focus {
     outline: 0;
@@ -19,6 +23,8 @@ html{
 nav{
     z-index: 1000;
 }
+
+
 
 #addNotey{
     overflow: auto;
@@ -195,14 +201,6 @@ nav{
     margin-left:50%;
     transform: translateX(-50%);
     
-}
-
-#login-container{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: white;
-    display: block;
 }
 
 #profile{
@@ -389,7 +387,7 @@ nav{
     width: 0%;
     left: 5%;
     background-color: rgba(255, 255, 255, 0.6);
-    transition: 0.5s ease all .3s;
+    transition: 0.3s ease all;
   }
   
   .navWrapper:hover .navLink::after {
@@ -414,31 +412,55 @@ nav{
     height: 100%;
     display: none;
 }
-  
-  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-  }
 
-.slide-in{
-    animation: slide-in 0.5s ease forwards;
+#form-container{
+    margin: auto;
+    padding-top: 150px;
 }
 
-@keyframes slide-in{
-    from{
-        transform: translateX(100%);
-        visibility: visible;
-    }
-
-    to{
-        transform: translateX(0%); 
-        visibility: hidden;
-    }
+#btnLogin{
+    border-radius: 5px;
+    background-color: #5282C8;
+    height: 3.5em;
 }
 
+#btnReg{
+    border-radius: 5px;
+    background-color: #5282C8;
+    height: 3.5em;
+}
 
+#form-container input[type=text], [type=password]{
+    border-radius: 0px;
+    height: 4em;
+    border: none;
+    border-bottom: 1px solid #E4E4E4;
+}
+
+#form-container input[type=text], [type=password]:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+#backButton{
+    height: 100px;
+    position: absolute;
+    display: block;
+    top: 0;
+    margin-right: 2%;
+    bottom: 99%;
+    
+}
+
+#backAngle{
+    margin-top: 5%;
+    color: #999999;
+    font-size: 300%;
+
+    
+}
+
+#linkLogin{
+    text-align: right;
+
+}

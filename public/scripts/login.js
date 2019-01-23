@@ -6,6 +6,7 @@ $(document).ready(function(){
   });
 
   function insertIntoDB(){
+    event.preventDefault();
     userData = {
         userName: $('#regUsername').val(),
         email: $('#regEmail').val(),
@@ -55,7 +56,8 @@ $(document).ready(function(){
 } 
 
 $(document).ready(function(){
-    $("#btnLogin").click(function(){
+    $("#btnLogin").click(function(event){
+        event.preventDefault();
         login();
     });
 });
