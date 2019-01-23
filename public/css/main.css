@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 html{
@@ -89,56 +91,53 @@ nav{
 }
 
 #createHeader{
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     padding: 2%;
-    border-bottom: 1px solid;
     min-width: 375px;
 }
 
 #createBody{
+    padding: 10px;
     width: 50%;
     margin: 0 auto;
     min-width: 375px;
     height: 100%;
 }
 
-#createFooter{
-    width: 50%;
-    margin: 0 auto;
-    min-width: 375px;
-    height: auto;
-    max-width: 902px;
+.footer{
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    background-color: #1092D4;
+    text-align:center;
+}
 
+.blu {
+    color: #1092D4;
 }
 
 #viewNotey{
     display: none;
-    margin-top: 5%;
-    position: relative;
     z-index: 2;
     background-color: white;
-    margin: 0 auto;
+    margin: auto;
     position: absolute;
     width: 100%;
     height: 100%;
-
+    padding: 10px;
 }
 
 #viewHeader{
-    width: 50%;
-    margin: 0 auto;
-    padding: 2%;
-    border-bottom: 1px solid;
-    min-width: 375px;
+    width: 100%;
+    margin: auto;
 }
 
 #viewBody{
-    width: 50%;
+    width: 100%;
     margin: auto;
-    min-width: 375px;
     height: 80%;
-    padding:10px;
 }
 
 #viewFooter{
@@ -151,36 +150,30 @@ nav{
 
 #editNotey{
     display: none;
-    margin-top: 5%;
-    position: relative;
-    z-index: 5;
+    z-index: 2;
     background-color: white;
     margin: auto;
     position: absolute;
     width: 100%;
+    height: 100%;
+    padding: 10px;
 }
 
 #editHeader{
-    width: 50%;
-    margin: 0 auto;
-    padding: 2%;
-    border-bottom: 1px solid;
-    min-width: 375px;
+    width: 100%;
+    margin: auto;
 }
 
 #editBody{
-    width: 50%;
-    margin: 0 auto;
-    min-width: 375px;
-    height: 100%;
-    padding: 10px;
+    width: 100%;
+    margin: auto;
+    height: 80%;
 }
 
 #editFooter{
     position: fixed;
     bottom: 0px;
-    margin: 0 auto;
-    height: auto;
+    margin: auto;
     width: 100%;
     text-align: center;
 }
@@ -191,16 +184,42 @@ nav{
     margin-bottom: 6%;
 }
 
-#save{
-    float: right;
-    margin-right: 2%;
-    margin-top: 2%;
+.buttonCenter {
+    right: 0px;
+    left: 0px;
+    font-weight: bold;
+    background-color: unset;
+    color: white;
+    font-size: 1.7em;
+    height: 57px;
 }
+
+.buttonLeft {
+    float: left;
+    background-color: unset;
+    color: white;
+    font-size: 1.8em;
+}    
+
+.textboxstyle {
+    border: 0px;
+    box-shadow: none;
+}
+
+.textboxstyle:enabled {
+    border: 0px;
+    box-shadow: none;
+}
+
+.buttonRight {
+    float:right;
+    background-color: unset;
+    color: white;
+    font-size: 1.8em;
+}
+
 .title{
-    display: inline-block;
-    margin-left:50%;
-    transform: translateX(-50%);
-    
+    text-align: left;
 }
 
 #profile{
@@ -209,12 +228,13 @@ nav{
 
 #profile a{
     text-decoration: none;
-    color: red;
+    color:white;
 }
 
 #profile a:hover{
-    color: red;
+    color: whitesmoke;
 }
+
 #logout{
     width: 100%;
 }
@@ -314,8 +334,6 @@ nav{
         margin-top: 0;
     }
 }
-
-
 
 /* The Overlay (background) */
 .overlay {
@@ -430,6 +448,11 @@ nav{
     height: 3.5em;
 }
 
+    to{
+        transform: translateX(0%); 
+        visibility: hidden;
+    }
+
 #form-container input[type=text], [type=password]{
     border-radius: 0px;
     height: 4em;
@@ -462,5 +485,6 @@ nav{
 
 #linkLogin{
     text-align: right;
+
 
 }

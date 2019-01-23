@@ -259,7 +259,7 @@ function generateNote(id){
             $("#editTitle").val(title);
             $("#viewBody").html(converted);
             $("#editContent").val(content);
-            $("#deleteNotey, #saveUpdatedNotey").val(id);
+            $("#deleteNotey, #saveUpdatedNotey, #deleteEditNotey").val(id);
 
         },
         error: function(error) { 
@@ -352,6 +352,12 @@ $(function(){
 $(function(){
     $("#deleteNotey").click(function(){
         deleteNotey(this.value);
+    });
+});
+
+$(function(){
+    $("#deleteEditNotey").click(function(){
+    deleteNotey(this.value);
     });
 });
 

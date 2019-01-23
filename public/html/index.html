@@ -21,79 +21,64 @@
     <nav class="navbar navbar-dark bg-primary">
         <form class="form-inline">
         <a class="navbar-brand" href="#">Notey</a>
-
-            <button id="addNotey" class="btn btn-outline-light" type="button" onClick="transitionAdd()"><i class="fas fa-plus"></i></button>
         </form>
         <div id="profile">
-            <a id="dropdownMenuLink" class="right fas fa-user" href="#" data-toggle="collapse" data-target=".dropdown-menu" onClick="generateDetails()"></a>
-            <a class = "right dropdown-toggle"id = "dropdownMenuLink"href="#" data-toggle="collapse" data-target=".dropdown-menu" onClick="generateDetails()">Profile</a>
+            <a id="dropdownMenuLink" class="right fa fa-user" href="#" data-toggle="collapse" data-target=".dropdown-menu" onClick="generateDetails()"></a>
         </div>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu1">
             <p id="userName" class="dropdown-item-text"></p>
             <div class="dropdown-divider"></div>
             <button id="logout" class="btn btn-danger ml-3" type="button"> <i class="fas fa-sign-out-alt"></i></button>
         </div>
-            
-        
-        
-
     </nav>
     <!-- List -->
-    
-
     <div id="createNotey" class="">
-        <div id="createHeader">
-            <h4 class="title">Add New Notey</h4> 
-            <button id="closeButton" type="button" class="close btn-danger" onClick="transitionClose()"><i class="fas fa-times"></i></button>
-        </div>
         <div id="createBody">
             <div class="form-group">
-                <label for="noteTitle" class="col-form-label">Set Title:</label>
-                <input type="text" class="form-control" id="noteTitle">
+                <input type="text" class="form-control textboxstyle" id="noteTitle" placeholder="Title">
             </div>
-            <label for="content" class="col-form-label">Note:</label>                  
-            <textarea name="content" rows="28" id="content" class="editor form-control col-xs-12"></textarea>
+            <hr>            
+            <textarea name="content" rows="28" id="content" class="editor form-control col-xs-12 textboxstyle" placeholder="What´s on your mind?"></textarea>
             <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
         </div>
-        <div id="createFooter" class="bg-primary">
-            <button id="save" type="button" class="btn btn-primary btn-lg" data-dismiss="modal" id="saveNotey" onClick="createNote()"><i class="fas fa-save"></i></button>
+        <div id="createFooter" class="footer">
+            <button id="return" type="button" class="buttonLeft btn col-m-4" data-dismiss="modal" onClick="transitionClose()"></i><i class="fas fa-arrow-left"></i></button>
+            <button type="button" class="buttonCenter btn" data-dismiss="modal" id="saveNotey" onClick="createNote()">Save</button>
+            <button type="button" class="btn buttonRight"><i class="fas fa-trash-alt blu"></i></button>
         </div>
     </div>
     <div id="viewNotey">
         <div id="viewHeader">
             <h4 id="viewTitle" class="title"></h4>
-            <button id="closeButton" type="button" class="close btn-danger" onClick="closeNotey()"><i class="fas fa-times"></i></button>
+            <hr>
         </div>
         <div id="viewBody">
-
         </div>
-        <div id="viewFooter" class="bg-primary">
-            <button id="updateNotey" type="button" class="btn btn-primary" onClick="updateNotey()"><i class="fas fa-edit"></i></button>
-            <button id="deleteNotey" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
-            
+        <div id="viewFooter" class="footer">
+            <button id="return" type="button" class="buttonLeft btn col-m-4" data-dismiss="modal" onClick="closeAll()"></i><i class="fas fa-arrow-left"></i></button>
+            <button id="updateNotey" type="button" class="btn buttonCenter" onClick="updateNotey()">Edit</button>
+            <button id="deleteNotey" type="button" class="btn buttonRight" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
         </div>
-
     </div>
     <div id="editNotey" class="">
             <div id="editHeader">
-                <h4 class="title">Edit Notey</h4> 
-                <button id="closeButton" type="button" class="close btn-danger" onClick="closeAll()"><i class="fas fa-times"></i></button>
+                <input type="text" class="form-control textboxstyle" id="editTitle">
+                <hr>
             </div>
-            <div id="editBody">
-                <div class="form-group">
-                    <label for="noteTitle" class="col-form-label">Set Title:</label>
-                    <input type="text" class="form-control" id="editTitle">
-                </div>
-                <label for="content" class="col-form-label">Note:</label>                  
-                <textarea name="editContent" rows="30" id="editContent" class="editor form-control col-xs-12"></textarea>
+            <div id="editBody">                 
+                <textarea name="editContent" rows="30" id="editContent" class="form-control col-xs-12 textboxstyle"></textarea>
             </div>
-            <div id="editFooter" class="bg-primary">
-                <button id="saveUpdatedNotey" type="button" class="btn btn-primary"><i class="fas fa-save"></i></button>
-                <button id="cancelUpdateNotey" type="button" class="btn btn-danger" onClick="updateNoteyClose()">Cancel</button>
+            <div id="editFooter" class="footer">
+                    <button id="return" type="button" class="buttonLeft btn col-m-4" data-dismiss="modal" onClick="closeAll()"></i><i class="fas fa-arrow-left"></i></button>
+                    <button id="saveUpdatedNotey" type="button" class="btn buttonCenter">Save</button>
+                    <button id="deleteEditNotey" type="button" class="btn buttonRight" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
             </div>
         </div>
         <div class="container-fluid">
             <div id="notey-list" class="row col-form-label"></div>
+        </div>
+        <div id="mainFooter" class="footer">
+                <button class="btn buttonLeft" id="addNotey" class="btn" type="button" onClick="transitionAdd()"><i class="fas fa-plus"></i></button>
         </div>
 </body>
 </html>
