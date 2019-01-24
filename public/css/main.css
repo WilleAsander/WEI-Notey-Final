@@ -58,6 +58,10 @@ nav{
     margin-right: 1rem;
 }
 
+.navbar {
+    background-color: #5282C8;
+}
+
 #errorDiv{
     display: flex;
     align-items: center;
@@ -215,6 +219,7 @@ nav{
 
 #profile{
     right: 0;
+    font-size: 1.8em;
 }
 
 #profile a{
@@ -257,6 +262,11 @@ nav{
 
 #logoStart{
     min-height: 100%;
+}
+
+#logoHeader {
+    height: 58px;
+    font-size: 2em;
 }
 
 #centerLogo{
