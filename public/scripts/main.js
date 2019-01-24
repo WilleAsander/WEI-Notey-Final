@@ -181,32 +181,32 @@ function transitionAdd(){
     
     else if($("#viewNotey").is(":visible") && $("#editNotey").is(":visible")){
         closeAll();
-        $('#createNotey').addClass('magictime slideUpReturn');
+        $('#createNotey').addClass('magictime slideRightReturn');
         setTimeout(function(){
-            $('#createNotey').removeClass('magictime slideUpReturn');
+            $('#createNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#createNotey').css('display', 'block');
     }
     else if($("#editNotey").is(":visible")){
         updateNoteyClose();
-        $('#createNotey').addClass('magictime slideUpReturn');
+        $('#createNotey').addClass('magictime slideRightReturn');
         setTimeout(function(){
-            $('#createNotey').removeClass('magictime slideUpReturn');
+            $('#createNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#createNotey').css('display', 'block');
     }
     else if($("#viewNotey").is(":visible")){
         closeNotey();
-        $('#createNotey').addClass('magictime slideUpReturn');
+        $('#createNotey').addClass('magictime slideRightReturn');
         setTimeout(function(){
-            $('#createNotey').removeClass('magictime slideUpReturn');
+            $('#createNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#createNotey').css('display', 'block');
     }
     else{
-        $('#createNotey').addClass('magictime slideUpReturn');
+        $('#createNotey').addClass('magictime slideRightReturn');
         setTimeout(function(){
-            $('#createNotey').removeClass('magictime slideUpReturn');
+            $('#createNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#createNotey').css('display', 'block');
     }
@@ -215,11 +215,12 @@ function transitionAdd(){
 }
 
 function transitionClose(){
-    $('#createNotey').addClass('magictime slideUp');
+    $('#createNotey').addClass('magictime slideRight');
     setTimeout(function(){
-        $('#createNotey').removeClass('magictime slideUp');
+        $('#createNotey').removeClass('magictime slideRight');
         $('#createNotey').css('display', 'none');
     }, 1000);
+
 
 }
 
@@ -243,18 +244,18 @@ function openNotey(button){
         return;
     }
     else{
-        $('#viewNotey').addClass('magictime slideUpReturn');
+        $('#viewNotey').addClass('magictime slideRightReturn');
         setTimeout(function(){
-            $('#viewNotey').removeClass('magictime slideUpReturn');
+            $('#viewNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#viewNotey').css('display', 'block');
     }
 }
 
 function closeNotey(){
-    $('#viewNotey').addClass('magictime slideUp');
+    $('#viewNotey').addClass('magictime slideRight');
     setTimeout(function(){
-        $('#viewNotey').removeClass('magictime slideUp');
+        $('#viewNotey').removeClass('magictime slideRight');
         $('#viewNotey').css('display', 'none');
     }, 1000);
 }
@@ -265,9 +266,9 @@ function updateNotey(){
     }
     else{
 
-        $('#editNotey').addClass('magictime slideUpReturn');
+        $('#editNotey').addClass('magictime slideRightReturn');
         setTimeout(function(){
-            $('#editNotey').removeClass('magictime slideUpReturn');
+            $('#editNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#editNotey').css('display', 'block');
         $('#saveUpdatedNotey').css('display', 'inline-block');
@@ -278,9 +279,9 @@ function updateNotey(){
 }
 
 function updateNoteyClose(){
-    $('#editNotey').addClass('magictime slideUp');
+    $('#editNotey').addClass('magictime slideRight');
     setTimeout(function(){
-        $('#editNotey').removeClass('magictime slideUp');
+        $('#editNotey').removeClass('magictime slideRight');
         $('#editNotey').css('display', 'none');
     }, 1000);
     $('#viewFooter').css('display', 'block');

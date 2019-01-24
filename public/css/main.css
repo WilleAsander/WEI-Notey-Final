@@ -11,6 +11,7 @@ html{
 
 body{
     height: 100%;
+    overflow-x: hidden;
 }
 
 h1{
@@ -370,6 +371,10 @@ nav{
 	transition: 0.5s;
   }
   
+
+#content{
+    height: 100vh;
+}
   /* Position the content inside the overlay */
   .overlay-content {
     position: relative;
