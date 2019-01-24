@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <form class="form-inline">
-        <a class="navbar-brand" href="#"><img id="logoHeader" src="img\5483871d-b91e-49e6-8753-f1bac799007a.png"></a>
+        <a class="navbar-brand" href="#"><img id="logoHeader" src="img\logo-nav.png"></a>
         </form>
         <div id="profile">
             <a id="dropdownMenuLink" class="right fa fa-user" href="#" onclick="openNav()"></a>
@@ -54,9 +54,9 @@
             <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
         </div>
         <div id="createFooter" class="footer">
-            <button id="return" type="button" class="buttonLeft btn col-m-4" data-dismiss="modal" onClick="transitionClose()"></i><i class="fas fa-arrow-left"></i></button>
-            <button type="button" class="buttonCenter btn" data-dismiss="modal" id="saveNotey" onClick="createNote()">Save</button>
-            <button type="button" class="btn buttonRight"><i class="fas fa-trash-alt blu"></i></button>
+            <button id="return" type="button" class="buttonLeft btn col-m-4 footerButtons" data-dismiss="modal" onClick="transitionClose()"></i><i class="fas fa-arrow-left"></i></button>
+            <button type="button" class="buttonCenter btn footerButtons" data-dismiss="modal" id="saveNotey" onClick="createNote()">Save</button>
+            <button type="button" class="btn buttonRight footerButtons"><i class="fas fa-trash-alt blu"></i></button>
         </div>
     </div>
     <div id="viewNotey">
@@ -67,9 +67,9 @@
         <div id="viewBody">
         </div>
         <div id="viewFooter" class="footer">
-            <button id="return" type="button" class="buttonLeft btn col-m-4" data-dismiss="modal" onClick="closeAll()"></i><i class="fas fa-arrow-left"></i></button>
-            <button id="updateNotey" type="button" class="btn buttonCenter" onClick="updateNotey()">Edit</button>
-            <button id="deleteNotey" type="button" class="btn buttonRight" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
+            <button id="return" type="button" class="buttonLeft btn col-m-4 footerButtons" data-dismiss="modal" onClick="closeAll()"></i><i class="fas fa-arrow-left"></i></button>
+            <button id="updateNotey" type="button" class="btn buttonCenter footerButtons" onClick="updateNotey()">Edit</button>
+            <button id="deleteNotey" type="button" class="btn buttonRight footerButtons" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
         </div>
     </div>
     <div id="editNotey" class="">
@@ -81,16 +81,16 @@
                 <textarea name="editContent" rows="30" id="editContent" class="form-control col-xs-12 textboxstyle"></textarea>
             </div>
             <div id="editFooter" class="footer">
-                    <button id="return" type="button" class="buttonLeft btn col-m-4" data-dismiss="modal" onClick="closeAll()"></i><i class="fas fa-arrow-left"></i></button>
-                    <button id="saveUpdatedNotey" type="button" class="btn buttonCenter">Save</button>
-                    <button id="deleteEditNotey" type="button" class="btn buttonRight" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
+                    <button id="return" type="button" class="buttonLeft btn col-m-4 footerButtons" data-dismiss="modal" onClick="closeAll()"></i><i class="fas fa-arrow-left"></i></button>
+                    <button id="saveUpdatedNotey" type="button" class="btn buttonCenter footerButtons">Save</button>
+                    <button id="deleteEditNotey" type="button" class="btn buttonRight footerButtons" data-dismiss="modal"><i class="fas fa-trash-alt"></i></button>
             </div>
         </div>
         <div class="container-fluid">
             <div id="notey-list" class="row col-form-label"></div>
         </div>
         <div id="mainFooter" class="footer">
-                <button class="btn buttonLeft" id="addNotey" class="btn" type="button" onClick="transitionAdd()"><i class="fas fa-plus"></i></button>
+                <button class="btn buttonLeft footerButtons" id="addNotey" class="btn" type="button" onClick="transitionAdd()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="mobile-indicator"></div>
 </body>

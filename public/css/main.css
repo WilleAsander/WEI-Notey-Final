@@ -45,6 +45,23 @@ nav{
     color: #999999;
 }
 
+#dateHead{
+    color: #999999;
+}
+
+.footerButtons:hover{
+    color: white;
+}
+
+
+
+
+#rightAngle{
+    position: relative;
+    opacity: 0.25;
+    margin-bottom: 2%;
+}
+
 
 #addNotey{
     overflow: auto;
