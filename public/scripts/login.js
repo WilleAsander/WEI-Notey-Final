@@ -13,8 +13,8 @@ $(document).ready(function(){
         password: $('#regPassword').val()
     };
     
-    // Checking if password and username matches any in the database on click of enter
-    var input = document.getElementById("regPassword", "regEmail");
+    // Checks if registration is possible on click of enter
+    var input = document.getElementById("regEmail", "regPassword", "regUsername");
     input.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
@@ -82,7 +82,7 @@ function login(){
     };
     
     // Checking if password and username matches any in the database on click of enter
-    var input = document.getElementById("inputPassword");
+    var input = document.getElementById("inputPassword", "inputUsername");
     input.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
