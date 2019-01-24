@@ -93,6 +93,25 @@ function fetchNoteys(){
     
 }
 
+function openNav() {
+    $('.layer').css('display', 'block');
+    if( $('.mobile-indicator').is(':visible')){
+        document.getElementById("myProfile").style.width = "100%";
+        generateDetails(); 
+    }
+    
+    else{
+       document.getElementById("myProfile").style.width = "80%"; 
+    }
+    
+  }
+  
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+    $('.layer').css('display', 'none');
+    document.getElementById("myProfile").style.width = "0%";
+  }
+
 $(function(){
     $("#saveNotey").click(function(){
     });
@@ -381,14 +400,14 @@ $(function(){
 
 function generateDetails(){
     $.ajax({
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Authorization': token,
         },
         url: 'https://api-notey.herokuapp.com/api/1.0/user/decode',
         success: function(result){
             console.log(result);
-            $('#userName').text(result.userName);
+            $('#user-name').text(result.userName);
         },
         error: function(error){
             var err = JSON.parse(error.responseText);
@@ -396,12 +415,3 @@ function generateDetails(){
 
     });
 }
-
-function openNav() {
-    document.getElementById("myNav").style.width = "100%";
-  }
-  
-  /* Close when someone clicks on the "x" symbol inside the overlay */
-  function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
-  }

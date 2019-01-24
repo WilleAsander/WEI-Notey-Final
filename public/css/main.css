@@ -58,6 +58,10 @@ nav{
     margin-right: 1rem;
 }
 
+.navbar {
+    background-color: #5282C8;
+}
+
 #errorDiv{
     display: flex;
     align-items: center;
@@ -215,6 +219,7 @@ nav{
 
 #profile{
     right: 0;
+    font-size: 1.8em;
 }
 
 #profile a{
@@ -253,6 +258,11 @@ nav{
 
 #logoStart{
     min-height: 100%;
+}
+
+#logoHeader {
+    height: 58px;
+    font-size: 2em;
 }
 
 #centerLogo{
@@ -318,6 +328,16 @@ nav{
     }
 }
 
+.mobile-indicator{
+    display: none;
+}
+
+@media only screen and (max-width: 1000px){
+    .mobile-indicator{
+        display: block;
+    }
+}
+
 /* The Overlay (background) */
 .overlay {
 
@@ -325,7 +345,7 @@ nav{
     height: 100%;
     width: 0%;
 	position: absolute;
-	z-index: 1;
+	z-index: 2000;
 	right: 0;
 	background-color: rgb(0,0,102); /* Black fallback color */
     background-color: rgba(0,0,102, 0.9);
@@ -339,7 +359,13 @@ nav{
     top: 25%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    margin-top: 30px;
+    height: 100%; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+
+  #divider{
+      width: 75%;
+      margin: 0 auto;
   }
   
   /* The navigation links inside the overlay */
@@ -356,7 +382,15 @@ nav{
   .navLink {
     position: relative;
     display: inline-block;
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .navText {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
     font-weight: 400;
     text-align: center;
   }
@@ -365,6 +399,14 @@ nav{
 .navLink:hover,
 .navLink:focus,
 .navLink:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navText,
+.navText:hover,
+.navText:focus,
+.navText:active {
   color: #fff;
   text-decoration: none;
 }
@@ -404,6 +446,12 @@ nav{
     font-size: 100px;
   }
 
+  #logout{
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
   .layer {
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
@@ -412,6 +460,7 @@ nav{
     width: 100%;
     height: 100%;
     display: none;
+    z-index: 1001;
 }
 
 #form-container{
