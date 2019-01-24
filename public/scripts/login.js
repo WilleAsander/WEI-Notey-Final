@@ -12,6 +12,15 @@ $(document).ready(function(){
         email: $('#regEmail').val(),
         password: $('#regPassword').val()
     };
+    
+    // Checks if registration is possible on click of enter
+    var input = document.getElementById("regEmail", "regPassword", "regUsername");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("#btnReg").click();
+        }
+    });
 
     $.ajax({
         method: 'POST',
@@ -71,6 +80,15 @@ function login(){
         userName: userName,
         password: password
     };
+    
+    // Checking if password and username matches any in the database on click of enter
+    var input = document.getElementById("inputPassword", "inputUsername");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("#btnLogin").click();
+        }
+    });
 
     $.ajax({
         method: 'POST',
