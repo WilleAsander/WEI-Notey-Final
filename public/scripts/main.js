@@ -19,7 +19,7 @@ function fetchNoteys(){
         success: function(notes){
             $.each(notes.reverse(), function(index, value){
                 var $button = $('<button id="noteyItem" value="'+value['id']+'" class="list-group-item list-group-item-action">');
-                var $small = $('<small class="float-right">');
+                var $small = $('<small id="dateHead" class="float-right">');
                 var $headerWrapper = $('<div id="headerWrapper">');
                 $headerWrapper.css('font-weight', 'bold');
                 $headerWrapper.css('font-size', '115%');
@@ -27,8 +27,14 @@ function fetchNoteys(){
                 var converter = new showdown.Converter();
                 var converted = converter.makeHtml(value['content']);
                 var clean = converted.replace(/<\/?[^>]+(>|$)/g, "");
+                $arrow = $('<img id="rightAngle" src="img/2D780716D3D89B2EFB0155599BA0A89F.png">');
                 var modified = $('<p>');
                 var $append = $(converted);
+                var cuttedHead
+                $small.append(
+                    value['date'],
+                    $arrow
+                );
                 if (clean.replace(/ /g,'').length > 35){
                     cutted = clean.substring(0, 35);
                     cutted +="...";
@@ -39,14 +45,20 @@ function fetchNoteys(){
                     modified = clean;
                 }
 
+                if(value['heading'].replace(/ /g,'').length > 20){
+                    cuttedHead = value['heading'].substring(0, 20);
+                    cuttedHead += "...";
+                }
+                else{
+                    cuttedHead = value['heading']
+                }
+
                 $button.append(
                     $headerWrapper.append(
-                        value['heading']
+                        cuttedHead,
+                        $small
                     ),
-                    
-                    $small.append(
-                        value['date']
-                    ),
+                
                     $small2.append(
                         modified
                     )
@@ -101,7 +113,8 @@ function openNav() {
     }
     
     else{
-       document.getElementById("myProfile").style.width = "80%"; 
+       document.getElementById("myProfile").style.width = "80%";
+       generateDetails();  
     }
     
   }
