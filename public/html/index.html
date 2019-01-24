@@ -23,14 +23,26 @@
         <a class="navbar-brand" href="#">Notey</a>
         </form>
         <div id="profile">
-            <a id="dropdownMenuLink" class="right fa fa-user" href="#" data-toggle="collapse" data-target=".dropdown-menu" onClick="generateDetails()"></a>
-        </div>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu1">
-            <p id="userName" class="dropdown-item-text"></p>
-            <div class="dropdown-divider"></div>
-            <button id="logout" class="btn btn-danger ml-3" type="button"> <i class="fas fa-sign-out-alt"></i></button>
+            <a id="dropdownMenuLink" class="right fa fa-user" href="#" onclick="openNav()"></a>
         </div>
     </nav>
+    <div id="myProfile" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <div class="navWrapper"><a id="user-name" class="navText" href="#"></a></div>
+            <div id="divider" class="dropdown-divider"></div>
+            <div class="navWrapper"><a class="navLink" href="error">Profile</a></div>
+            <div class="navWrapper"><a id="logout" class="navLink" href="#">Log Out</a></div>
+        </div>
+        
+    </div>
+
+    <div class="layer">
+    </div>
     <!-- List -->
     <div id="createNotey" class="">
         <div id="createBody">
@@ -80,5 +92,6 @@
         <div id="mainFooter" class="footer">
                 <button class="btn buttonLeft" id="addNotey" class="btn" type="button" onClick="transitionAdd()"><i class="fas fa-plus"></i></button>
         </div>
+        <div class="mobile-indicator"></div>
 </body>
 </html>
