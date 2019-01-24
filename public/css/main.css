@@ -241,23 +241,19 @@ nav{
     width: 100%;
     height: 100%;
     display: block;
-    
 }
 
 #startMenu{
     color: white;
     font-size: 50px;
     margin-left: auto;
-
 }
 
 #startNav{
     display: flex;
     width: 100%;
     background-color: 'rgba(0, 0, 0, 0)';
-    
     height: 100px;
-
 }
 
 #logoStart{
@@ -290,7 +286,6 @@ nav{
     font-family: "Segoe UI";
     width: 200px;
     height: 61px; 
-
 }
 
 #slogan h6{
@@ -308,13 +303,11 @@ nav{
     font-family: "Segoe UI";
     font-weight: 500;
     border-radius: 12px;
-
 }
 
 @media only screen and (max-width: 1400px){
     #slogan{
         margin-top: 40px;
-    
     }
 
     #btnLoginStart{
@@ -328,7 +321,6 @@ nav{
         font-family: "Segoe UI";
         font-weight: 500;
         border-radius: 12px;
-    
     }
 
     #centerLogo{
@@ -495,7 +487,7 @@ nav{
 
 #form-container input[type=text], [type=password]{
     border-radius: 0px;
-    height: 4em;
+    height: 4em; 
     border: none;
     border-bottom: 1px solid #E4E4E4;
 }
@@ -512,19 +504,19 @@ nav{
     top: 0;
     margin-right: 2%;
     bottom: 99%;
-    
 }
 
 #backAngle{
     margin-top: 5%;
     color: #999999;
     font-size: 300%;
-
-    
 }
 
 #linkLogin{
     text-align: right;
+}
 
-
+#inputPassword{
+    margin-bottom: 96px;
+    padding: 10px;
 }
