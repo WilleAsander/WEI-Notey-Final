@@ -17,7 +17,7 @@ function fetchNoteys(){
             'Authorization': token
         },
         success: function(notes){
-            $.each(notes.reverse(), function(index, value){
+            $.each(notes, function(index, value){
                 var $button = $('<button id="noteyItem" value="'+value['id']+'" class="list-group-item list-group-item-action">');
                 var $small = $('<small id="dateHead" class="float-right">');
                 var $headerWrapper = $('<div id="headerWrapper">');
@@ -367,7 +367,7 @@ $(function(){
         };
         var id = this.value;
         $.ajax({
-            method: 'PATCH',
+            method: 'PUT',
             url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/' + this.value,
             contentType: "application/json",
             data: JSON.stringify(noteData),
