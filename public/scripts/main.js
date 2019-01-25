@@ -133,6 +133,20 @@ $(function(){
 function createNote(){
         var title = $("#noteTitle").val();
         var text = $('#content').val();
+
+        if (title == "" && text == "") {
+            title = "New Document"
+            text = "(No content yet)"
+        }
+
+        else if (title == "") {
+            title = "New Document"
+        }
+        
+        else if (text == ""){
+            text = "(No content yet)"
+        }
+
         var noteDate = new Date();
         var noteData = {
             heading: title,
@@ -331,6 +345,20 @@ $(function(){
     $("#saveUpdatedNotey").click(function(){
         var title = $("#editTitle").val();
         var text = $('#editContent').val();
+
+        if (title == "" && text == "") {
+            title = "New Document"
+            text = "(No content yet)"
+        }
+
+        else if (title == "") {
+            title = "New Document"
+        }
+        
+        else if (text == ""){
+            text = "(No content yet)"
+        }
+        
         var noteDate = new Date();
         var noteData = {
             heading: title,
