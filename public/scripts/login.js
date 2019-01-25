@@ -43,6 +43,15 @@ $(document).ready(function(){
             else if(err.errorCode == 1.4){
                 error = "You must fill all fields!";
             }
+            else if(err.errorCode == 1.2){
+                if($('#regUsername').val()=="" || $('#regEmail').val()=="" || $('#regPassword').val()==""){
+                    error = "You must fill all fields!";
+                }
+                else{
+                  error = "Email is invalid!";  
+                }
+                
+            }
             var $p = $('<p>').text(error);
             $('#error-footer').append(
                 $p
