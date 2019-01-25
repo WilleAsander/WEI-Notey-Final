@@ -32,7 +32,7 @@ function fetchNoteys(){
                 var $append = $(converted);
                 var cuttedHead
                 $small.append(
-                    value['date'],
+                    value['modifiedDate'],
                     $arrow
                 );
                 if (clean.replace(/ /g,'').length > 35){
@@ -196,6 +196,7 @@ function transitionAdd(){
             $('#createNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#createNotey').css('display', 'block');
+        $('#listContainer').css('display', 'none');
     }
     
 
@@ -207,6 +208,7 @@ function transitionClose(){
         $('#createNotey').removeClass('magictime slideRight');
         $('#createNotey').css('display', 'none');
     }, 1000);
+    $('#listContainer').css('display', 'block');
 
 
 }
@@ -236,6 +238,7 @@ function openNotey(button){
             $('#viewNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#viewNotey').css('display', 'block');
+        $('#listContainer').css('display', 'none');
     }
 }
 
@@ -245,6 +248,7 @@ function closeNotey(){
         $('#viewNotey').removeClass('magictime slideRight');
         $('#viewNotey').css('display', 'none');
     }, 1000);
+    $('#listContainer').css('display', 'block');
 }
 
 function updateNotey(){
@@ -262,6 +266,7 @@ function updateNotey(){
         $('#cancelUpdateNotey').css('display', 'inline-block');
         $('#viewFooter').css('display', 'none');
         $('#viewBody').css('display', 'none');
+        $('#listContainer').css('display', 'none');
     }
 }
 
@@ -273,6 +278,7 @@ function updateNoteyClose(){
     }, 1000);
     $('#viewFooter').css('display', 'block');
     $('#viewBody').css('display', 'block');
+    $('#listContainer').css('display', 'block');
 }
 
 function closeAll(){
