@@ -131,3 +131,10 @@ function login(){
         }
     });
 }
+
+function moveToStart(){
+    $('#backButton').on('click touchstart', function() {
+        window.location.href = "start";
+    });
+    
+}

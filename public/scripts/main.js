@@ -113,8 +113,9 @@ function openNav() {
     }
     
     else{
-       document.getElementById("myProfile").style.width = "80%";
-       generateDetails();  
+        generateDetails();
+        document.getElementById("myProfile").style.width = "80%";
+         
     }
     
   }
@@ -336,11 +337,6 @@ $(function(){
             content: text,
             date: noteDate
         };
-        var noteData = {
-                heading: title,
-                content: text,
-                date: noteDate
-        };
         var id = this.value;
         $.ajax({
             method: 'PATCH',
@@ -350,7 +346,7 @@ $(function(){
             success: function(result){
                 fetchNoteys();
                 generateNote(id);
-                updateNoteyClose();
+                closeAll();
 
 
             },
