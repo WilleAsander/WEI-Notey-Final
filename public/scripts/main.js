@@ -133,19 +133,6 @@ function createNote(){
         var title = $("#noteTitle").val();
         var text = $('#content').val();
         var noteDate = new Date();
-        var dd = noteDate.getDate();
-        var mm = noteDate.getMonth()+1; //January is 0!
-        var yyyy = noteDate.getFullYear();
-
-        if(dd<10) {
-            dd = '0'+dd
-        } 
-
-        if(mm<10) {
-            mm = '0'+mm
-        } 
-
-        noteDate = mm + '/' + dd + '/' + yyyy;
         var noteData = {
             heading: title,
             content: text,
@@ -338,19 +325,6 @@ $(function(){
         var title = $("#editTitle").val();
         var text = $('#editContent').val();
         var noteDate = new Date();
-        var dd = noteDate.getDate();
-        var mm = noteDate.getMonth()+1; //January is 0!
-        var yyyy = noteDate.getFullYear();
-
-        if(dd<10) {
-            dd = '0'+dd
-        } 
-
-        if(mm<10) {
-            mm = '0'+mm
-        } 
-
-        noteDate = mm + '/' + dd + '/' + yyyy;
         var noteData = {
             heading: title,
             content: text,
