@@ -19,7 +19,7 @@ $(document).ready(function(){
         contentType: "application/json",
         data: JSON.stringify(userData),
         success: function(result){
-            console.log('ditt konto har skapats');
+            console.log('Kontot har skapats');
             window.location="/login";
         },
         error: function(error){
@@ -29,7 +29,7 @@ $(document).ready(function(){
                 error = "No special characters allowed!";
             }
             else if(err.errorCode == 1.3){
-                error = "User name is already taken!";
+                error = "Username is already taken!";
             }
             else if(err.errorCode == 1.4){
                 error = "You must fill all fields!";
@@ -98,7 +98,7 @@ function login(){
             $('#error-footer').empty();
             var err = JSON.parse(error.responseText);
             if(err.errorCode == 6.0 || err.errorCode == 6.1){
-                error = "User name or password doesn't match!";
+                error = "Username and password don't match!";
             }
             var $p = $('<p>').text(error);
             $('#error-footer').append(
