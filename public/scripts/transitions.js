@@ -160,7 +160,6 @@ function animate() {
 
 Barba.Dispatcher.on('newPageReady', function () {
     $(document).ready(function () {
-        closeNav();
         $("#btnLogin").click(function (event) {
             event.preventDefault();
             login();
