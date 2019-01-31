@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <!-- Stylesheet-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
     <script src="scripts/login.js"></script>
- 
+
 </head>
+
 <body>
-    <div id="backButton" class="container">
-        <a href="start"><i id="backAngle" class="fas fa-angle-left"></i></a>
+    <div id="barba-wrapper">
+        <div class="barba-container" data-namespace="backward">
+            <div class="loginWrapper">
+                <div id="backButton" class="container backward">
+                    <a href="start"><i id="backAngle" class="fas fa-angle-left"></i></a>
+                </div>
+                <div id="form-container" class="container col-lg-3">
+                    <form class="submit">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="regUsername" placeholder="Choose username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="regPassword" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="regEmail" placeholder="Email">
+                        </div>
+                        <p id="linkLogin"><a href="login">Already have an account? Log in!</a></p>
+                        <input type="submit" class="btn btn-primary form-control no-barba" id="btnReg" value="Sign up">
+                        <div id="error-footer" class="form-group">
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="form-container" class="container col-lg-3">
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="regUsername" placeholder="Choose username" autofocus>
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="regPassword" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="regEmail" placeholder="Email">
-            </div>
-            <p id="linkLogin"><a href="login">Already have an account? Log in!</a></p>
-            <input type="submit" class="btn btn-primary form-control" id="btnReg" value="Sign up">
-            <div id="error-footer" class="form-group">
-                    
-            </div>
-                
-        </form>
-                
-    </div>
+    <script src="scripts/barba.js" type="text/javascript"></script>
+    <script src="scripts\transitions.js"></script>
 </body>
+
 </html>

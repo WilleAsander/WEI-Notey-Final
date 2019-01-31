@@ -74,14 +74,35 @@ $(document).ready(function(){
 } 
 
 $(document).ready(function(){
+    closeNav();
     $("#btnLogin").click(function(event){
         event.preventDefault();
-        login();
+        login(); 
+        
+        
     });
 });
 
+function openNav() {
+    $('.layer').css('display', 'block');
+    if( $('.mobile-indicator').is(':visible')){
+      document.getElementById("myNav").style.width = "100%";
+    }
+    else{
+      document.getElementById("myNav").style.width = "80%";
+    }
+    
+  }
+  
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+    $('.layer').css('display', 'none');
+    document.getElementById("myNav").style.width = "0%";
+  }
+
 function login(){
-    $("form").submit(function(){
+    $("#btnLogin").click(function(event){
+        event.preventDefault();
     });
     var userName = $('#inputUsername').val();
     var password = $('#inputPassword').val();
