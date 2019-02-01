@@ -62,11 +62,6 @@ nav{
     color: white;
 }
 
-.footer{
-    bottom: 0;
-}
-
-
 #rightAngle{
     position: relative;
     opacity: 0.25;
@@ -214,14 +209,14 @@ nav{
     background-color: unset;
     color: white;
     font-size: 1.7em;
-    height: 57px;
 }
 
 .buttonLeft {
     float: left;
     background-color: unset;
     color: white;
-    font-size: 1.8em;
+    font-size: 1.7em;
+    height: 50px;
 }    
 
 .textboxstyle {
@@ -238,7 +233,7 @@ nav{
     float:right;
     background-color: unset;
     color: white;
-    font-size: 1.8em;
+    font-size: 1.7em;
 }
 
 .title{
