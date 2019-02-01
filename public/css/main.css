@@ -213,8 +213,7 @@ nav{
     float: left;
     background-color: unset;
     color: white;
-    font-size: 1.7em;
-    height: 50px;
+    font-size: 1.8em;
 }    
 
 .textboxstyle {
@@ -612,4 +611,8 @@ nav{
         transform: translateX(0%);
         visibility: visible;
     }
+}
+
+.footerButtons{
+    overflow-y: hidden;
 }
