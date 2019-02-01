@@ -1,24 +1,24 @@
 var error;
 var token = localStorage.getItem('userToken');
-if (token === null){
+if (token === null) {
     logout();
 }
 
 // Fetches all notes on site load
 $(fetchNoteys);
-function fetchNoteys(){
+function fetchNoteys() {
     $("#notey-list").empty();
     $("#notey-list a").off();
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
         contentType: "application/json",
-        headers:{
+        headers: {
             'Authorization': token
         },
-        success: function(notes){
-            $.each(notes, function(index, value){
-                var $button = $('<button id="noteyItem" value="'+value['id']+'" class="list-group-item list-group-item-action">');
+        success: function (notes) {
+            $.each(notes, function (index, value) {
+                var $button = $('<a id="noteyItem" data-value="' + value['id'] + '" class="list-group-item list-group-item-action" href="read">');
                 var $small = $('<small id="dateHead" class="float-right">');
                 var $headerWrapper = $('<div id="headerWrapper">');
                 $headerWrapper.css('font-weight', 'bold');
@@ -35,21 +35,21 @@ function fetchNoteys(){
                     value['modifiedDate'],
                     $arrow
                 );
-                if (clean.replace(/ /g,'').length > 35){
+                if (clean.replace(/ /g, '').length > 35) {
                     cutted = clean.substring(0, 35);
-                    cutted +="...";
+                    cutted += "...";
                     modified.append(cutted);
-                    
+
                 }
-                else{
+                else {
                     modified = clean;
                 }
 
-                if(value['heading'].replace(/ /g,'').length > 20){
+                if (value['heading'].replace(/ /g, '').length > 20) {
                     cuttedHead = value['heading'].substring(0, 20);
                     cuttedHead += "...";
                 }
-                else{
+                else {
                     cuttedHead = value['heading']
                 }
 
@@ -58,34 +58,35 @@ function fetchNoteys(){
                         cuttedHead,
                         $small
                     ),
-                
+
                     $small2.append(
                         modified
                     )
 
-                    
+
                 );
                 $("#notey-list").append($button);
             });
-            
+
             // Add onclick listener after listItems have been created
-            $("#notey-list button").click(function(){
-                openNotey(this);
+            $("#notey-list a").click(function () {
+                generateNote($(this).data("value"));
             });
+
         },
-        error: function(error){
+        error: function (error) {
             var err = JSON.parse(error.responseText);
-            if(err.errorCode == 3.1){
+            if (err.errorCode == 3.1) {
                 error = "You don't have any noteys!";
             }
             var $errorNote = $('<i class="far fa-sticky-note fa-lg">');
             var $errorP = $('<p class="left">').append(
                 $errorNote,
                 error
-                
+
 
             );
-            
+
             var $errorDiv = $('<div id="errorDiv">');
             $errorDiv.append(
                 $errorP
@@ -101,82 +102,80 @@ function fetchNoteys(){
         }
     });
 
-    
-    
+
+
 }
 
 function openNav() {
     $('.layer').css('display', 'block');
-    if( $('.mobile-indicator').is(':visible')){
+    if ($('.mobile-indicator').is(':visible')) {
         document.getElementById("myProfile").style.width = "100%";
-        generateDetails(); 
+        generateDetails();
     }
-    
-    else{
+
+    else {
         generateDetails();
         document.getElementById("myProfile").style.width = "80%";
-         
+
     }
-    
-  }
-  
-  /* Close when someone clicks on the "x" symbol inside the overlay */
-  function closeNav() {
-    $('.layer').css('display', 'none');
-    document.getElementById("myProfile").style.width = "0%";
-  }
 
-$(function(){
-    $("#saveNotey").click(function(){
-    });
-});
-function createNote(){
-        var title = $("#noteTitle").val();
-        var text = $('#content').val();
-
-        if (title == "" && text == "") {
-            title = "New Document"
-            text = "(No content yet)"
-        }
-
-        else if (title == "") {
-            title = "New Document"
-        }
-        
-        else if (text == ""){
-            text = "(No content yet)"
-        }
-
-        var noteDate = new Date();
-        var noteData = {
-            heading: title,
-            content: text,
-            date: noteDate
-        };
-        $.ajax({
-            method: 'POST',
-            url: 'https://api-notey.herokuapp.com/api/1.0/notes/create/',
-            contentType: "application/json",
-            headers:{
-                'Authorization': token
-            },
-            data:JSON.stringify(noteData),
-             
-            success: function(result){
-                console.log(result);
-                $("#noteTitle").val('');
-                $("#content").val('');
-                fetchNoteys();
-                transitionClose();
-            },
-            error: function(error){
-                var err = JSON.parse(error.responseText);
-                console.log(err);
-            },
-        });
 }
 
-function transitionAdd(){
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    $('.layer').css('display', 'none');
+    document.getElementById("myProfile").style.width = "0%";
+}
+
+$(function () {
+    $("#saveNotey").click(function () {
+    });
+});
+function createNote() {
+    var title = $("#noteTitle").val();
+    var text = $('#content').val();
+
+    if (title == "" && text == "") {
+        title = "New Document"
+        text = "(No content yet)"
+    }
+
+    else if (title == "") {
+        title = "New Document"
+    }
+
+    else if (text == "") {
+        text = "(No content yet)"
+    }
+
+    var noteDate = new Date();
+    var noteData = {
+        heading: title,
+        content: text,
+        date: noteDate
+    };
+    $.ajax({
+        method: 'POST',
+        url: 'https://api-notey.herokuapp.com/api/1.0/notes/create/',
+        contentType: "application/json",
+        headers: {
+            'Authorization': token
+        },
+        data: JSON.stringify(noteData),
+
+        success: function (result) {
+            console.log(result);
+            $("#noteTitle").val('');
+            $("#content").val('');
+        },
+        error: function (error) {
+            var err = JSON.parse(error.responseText);
+            console.log(err);
+        },
+    });
+}
+
+/*function transitionAdd(){
     if($("#createNotey").is(":visible")){
         return;
     }
@@ -227,53 +226,29 @@ function transitionClose(){
 
 
 }
+*/
 
 
-
-$(function(){
-    $("#logout").click(function(){
+$(function () {
+    $("#logout").click(function () {
         logout();
     });
 });
 
 // Global function so we can call it whenever
-function logout(){
+function logout() {
     localStorage.clear();
     window.location = "/start";
 }
 
-function openNotey(button){
-    generateNote(button.value);
-    if($("#viewNotey").is(":visible")){
+/*function updateNotey() {
+    if ($("#editNotey").is(":visible")) {
         return;
     }
-    else{
-        $('#viewNotey').addClass('magictime slideRightReturn');
-        setTimeout(function(){
-            $('#viewNotey').removeClass('magictime slideRightReturn');
-        }, 1000);
-        $('#viewNotey').css('display', 'block');
-        $('#listContainer').css('display', 'none');
-    }
-}
-
-function closeNotey(){
-    $('#viewNotey').addClass('magictime slideRight');
-    setTimeout(function(){
-        $('#viewNotey').removeClass('magictime slideRight');
-        $('#viewNotey').css('display', 'none');
-    }, 1000);
-    $('#listContainer').css('display', 'block');
-}
-
-function updateNotey(){
-    if($("#editNotey").is(":visible")){
-        return;
-    }
-    else{
+    else {
 
         $('#editNotey').addClass('magictime slideRightReturn');
-        setTimeout(function(){
+        setTimeout(function () {
             $('#editNotey').removeClass('magictime slideRightReturn');
         }, 1000);
         $('#editNotey').css('display', 'block');
@@ -285,9 +260,9 @@ function updateNotey(){
     }
 }
 
-function updateNoteyClose(){
+function updateNoteyClose() {
     $('#editNotey').addClass('magictime slideRight');
-    setTimeout(function(){
+    setTimeout(function () {
         $('#editNotey').removeClass('magictime slideRight');
         $('#editNotey').css('display', 'none');
     }, 1000);
@@ -296,17 +271,18 @@ function updateNoteyClose(){
     $('#listContainer').css('display', 'block');
 }
 
-function closeAll(){
+function closeAll() {
     updateNoteyClose();
     closeNotey();
-}
+}*/
 
-function generateNote(id){
+
+function generateNote(id) {
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/' + id,
         contentType: "application/json",
-        success: function(result){
+        success: function (result) {
             // sets the value of noteys data into title and content
             var title = result.heading;
             var content = result.content;
@@ -318,31 +294,39 @@ function generateNote(id){
             $("#editTitle").val(title);
             $("#viewBody").html(converted);
             $("#editContent").val(content);
-            $("#deleteNotey, #saveUpdatedNotey, #deleteEditNotey").val(id);
-
+            $("#deleteNotey").attr('data-value', '' + id + '');
+            $("#updateNotey").attr('data-value', '' + id + '');
+            $("#saveUpdatedNotey").attr('data-value', '' + id + '');
+            $("#deleteNotey").click(function () {
+                console.log('im here');
+                deleteNotey($(this).data('value'));
+            });
+            $("#saveUpdatedNotey").click(function () {
+                saveEditedNotey($(this).data('value'));
+            });
         },
-        error: function(error) { 
-            alert(error.errorMessage); 
+        error: function (error) {
+            alert(error.errorMessage);
         }
     });
 }
 
-function deleteNotey(id){
+function deleteNotey(id) {
+    console.log('im here');
     $.ajax({
         method: 'DELETE',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/delete/' + id,
-        success: function(result){
-            fetchNoteys();
-            closeNotey();
+        success: function (result) {
+            
         },
-        error: function(error){
+        error: function (error) {
         }
 
     });
 };
 
-$(function(){
-    $("#saveUpdatedNotey").click(function(){
+function saveEditedNotey(id) {
+        console.log('hey');
         var title = $("#editTitle").val();
         var text = $('#editContent').val();
 
@@ -354,80 +338,45 @@ $(function(){
         else if (title == "") {
             title = "New Document"
         }
-        
-        else if (text == ""){
+
+        else if (text == "") {
             text = "(No content yet)"
         }
-        
+
         var noteDate = new Date();
         var noteData = {
             heading: title,
             content: text,
             date: noteDate
         };
-        var id = this.value;
         $.ajax({
             method: 'PUT',
-            url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/' + this.value,
+            url: 'https://api-notey.herokuapp.com/api/1.0/notes/update/' + id,
             contentType: "application/json",
             data: JSON.stringify(noteData),
-            success: function(result){
-                fetchNoteys();
-                generateNote(id);
-                closeAll();
+            success: function (result) {
 
 
             },
-            error: function(error){
+            error: function (error) {
                 var err = JSON.parse(error.responseText);
                 console.log(err);
             }
         });
-    });
-});
+}
 
-$(function(){
-    $("#cancelUpdateNotey").click(function(){
-        $("#updateTitle").hide();
-        $("#displayTitle").show();
-
-        $("#updateContent").hide();
-        $("#displayContent").show();
-
-        $("#updateNotey").show();
-        $("#saveUpdatedNotey").hide();
-
-        $("#closeNotey").show();
-        $("#cancelUpdateNotey").hide();
-
-        $("#deleteNotey").show();
-    });
-});
-
-$(function(){
-    $("#deleteNotey").click(function(){
-        deleteNotey(this.value);
-    });
-});
-
-$(function(){
-    $("#deleteEditNotey").click(function(){
-    deleteNotey(this.value);
-    });
-});
-
-function generateDetails(){
+function generateDetails() {
     $.ajax({
         method: 'POST',
         headers: {
             'Authorization': token,
         },
         url: 'https://api-notey.herokuapp.com/api/1.0/user/decode',
-        success: function(result){
+        success: function (result) {
             console.log(result);
             $('#user-name').text(result.userName);
         },
-        error: function(error){
+        error: function (error) {
             var err = JSON.parse(error.responseText);
         }
 

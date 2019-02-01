@@ -49,18 +49,24 @@
     <div class="layer">
     </div>
     <div id="barba-wrapper">
-        <div class="barba-container" data-namespace="homepage">
-            <div id="listContainer" class="container-fluid">
-                <div id="notey-list" class="row col-form-label"></div>
+        <div class="barba-container" data-namespace="readpage">
+            <div id="viewNotey">
+                <div id="viewHeader">
+                    <h4 id="viewTitle" class="title"></h4>
+                    <hr>
+                </div>
+                <div id="viewBody">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer mainFooter">
-        <a class="btn buttonLeft footerButtons" id="addNotey" class="btn" href="create"><i class="fas fa-plus"></i></a>
-    </div>
-    <div class="mobile-indicator"></div>
-    <script src="scripts/barba.js" type="text/javascript"></script>
-    <script src="scripts\transitionsIndex.js"></script>
+        <div class="footer mainFooter">
+            <a id="return" class="buttonLeft btn col-m-4 footerButtons" href="/"><i class="fas fa-arrow-left"></i></a>
+            <a id="updateNotey" class="btn buttonCenter footerButtons" href="edit">Edit</a>
+            <a id="deleteNotey" class="btn buttonRight footerButtons" href="/" data-value="nothing"><i class="fas fa-trash-alt"></i></a>
+        </div>
+        <div class="mobile-indicator"></div>
+        <script src="scripts/barba.js" type="text/javascript"></script>
+        <script src="scripts\transitionsIndex.js"></script>
 </body>
 
 </html>

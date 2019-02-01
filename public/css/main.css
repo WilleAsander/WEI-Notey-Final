@@ -39,6 +39,7 @@ nav{
 
 #listContainer{
     height: 80%;
+    position: absolute;
 }
 
 #noteyItem{
@@ -97,10 +98,9 @@ nav{
     align-items: center;
 }
 #createNotey{
-    display: none;
+    display: block;
     margin-top: 5%;
-    position: relative;
-    z-index: 1;
+    position: absolute;
     background-color: white;
     margin: 0 auto;
     position: absolute;
@@ -137,13 +137,12 @@ nav{
 }
 
 #viewNotey{
-    display: none;
-    z-index: 2;
+    display: block;
     background-color: white;
     margin: auto;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 10px;
 }
 
@@ -167,8 +166,7 @@ nav{
 }
 
 #editNotey{
-    display: none;
-    z-index: 2;
+    display: block;
     background-color: white;
     margin: auto;
     position: absolute;
@@ -563,7 +561,7 @@ nav{
 }
 
 .slide-in{
-    animation: slide-in 0.5s ease forwards;
+    animation: slide-in 0.3s ease forwards;
 }
 
 @keyframes slide-in {
@@ -582,12 +580,12 @@ nav{
 }
 
 .slide-forward{
-    animation: slide-back 0.5s ease forwards;
+    animation: slide-back 0.3s ease forwards;
     animation-direction: reverse;
 }
 
 .slide-out{
-    animation: slide-out 0.5s ease forwards;
+    animation: slide-out 0.3s ease forwards;
 }
 
 @keyframes slide-out {
@@ -602,7 +600,7 @@ nav{
 }
 
 .slide-back{
-    animation: slide-back 0.5s ease forwards;
+    animation: slide-back 0.3s ease forwards;
 }
 
 @keyframes slide-back {

@@ -49,14 +49,22 @@
     <div class="layer">
     </div>
     <div id="barba-wrapper">
-        <div class="barba-container" data-namespace="homepage">
-            <div id="listContainer" class="container-fluid">
-                <div id="notey-list" class="row col-form-label"></div>
+        <div class="barba-container" data-namespace="editpage">
+            <div id="editNotey" class="">
+                <div id="editHeader">
+                    <input type="text" class="form-control textboxstyle" id="editTitle">
+                    <hr>
+                </div>
+                <div id="editBody">
+                    <textarea name="editContent" rows="30" id="editContent" class="form-control col-xs-12 textboxstyle"></textarea>
+                </div>
             </div>
         </div>
     </div>
     <div class="footer mainFooter">
-        <a class="btn buttonLeft footerButtons" id="addNotey" class="btn" href="create"><i class="fas fa-plus"></i></a>
+        <a id="return" class="buttonLeft btn col-m-4 footerButtons" href="/"><i class="fas fa-arrow-left"></i></a>
+        <a id="saveUpdatedNotey" class="btn buttonCenter footerButtons" href="/">Save</a>
+        <a id="deleteNotey" class="btn buttonRight footerButtons" href="/" data-value="nothing"><i class="fas fa-trash-alt"></i></a>
     </div>
     <div class="mobile-indicator"></div>
     <script src="scripts/barba.js" type="text/javascript"></script>

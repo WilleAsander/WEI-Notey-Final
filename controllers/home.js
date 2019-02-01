@@ -18,3 +18,15 @@ exports.Start = function(req,res){
 exports.Error = function(req,res){
     res.sendFile(path.resolve('public/html/error.html'));
 };
+
+exports.Create = function(req,res){
+    res.sendFile(path.resolve('public/html/create.html'));
+};
+
+exports.Read = function(req,res){
+    res.sendFile(path.resolve('public/html/read.html'));
+};
+
+exports.Edit = function(req,res){
+    res.sendFile(path.resolve('public/html/edit.html'));
+};
