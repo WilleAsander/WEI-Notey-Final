@@ -8,7 +8,6 @@ if (token === null) {
 $(fetchNoteys);
 function fetchNoteys() {
     $("#notey-list").empty();
-    $("#notey-list a").off();
     $.ajax({
         method: 'GET',
         url: 'https://api-notey.herokuapp.com/api/1.0/notes/',
